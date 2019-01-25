@@ -82,12 +82,21 @@ have cell $(n 1 m)$ on above and cell $(n,m+1)$ to the right. With this setup,
 we can now label each mass uniquely, e.g. $M_i$ in cell $(n, m)$ is labelled
 $M_i^{n,m}$.
 
-Each mass is connected to its direct neighbours, e.g. $M_1^{n,m}$ is connected
-to $M_2^{n,m}$, $M_4^{m,n}$, $M_2^{n,m+1}$ and $M_4^{n+1,m}$.
+Each mass is elastically connected to its direct neighbours, e.g. $M_1^{n,m}$
+is connected to $M_2^{n,m}$, $M_4^{m,n}$, $M_2^{n,m+1}$ and $M_4^{n+1,m}$. We
+have the spring constant $k$ between masses in the same cell and $\tilde{k}$
+between masses in adjacent cells.
+
+Now again we consider only nearest neighbour interactions. Focusing on the
+elementary cell $(n,m)$ and the cells its adjacent cells, using Hooke's law and
+Newton's 2nd law on each of the masses in cell $(n,m)$, we see that we can form
+four coupled second order differential equations.
+%TODO: Complete discussion of square lattice
 
 \subsection{Brillouin zones}
 The concept of Brillouin zones was first defined by Leon Brillouin in
 \cite{brillouin}.
+%TODO: Complete discussion of brillouin zones
 
 \section{2d hexagonal lattice}
 We will now consider how waves propagate across a 2d lattice made of hexagonal elementary cells. 
@@ -95,10 +104,11 @@ We will now consider how waves propagate across a 2d lattice made of hexagonal e
 %TODO: Add image to show model
 Consider an infinite 2d plane made of hexagonal unit cells of six masses $M_i$
 for $i\in\left[1,6\right]$, which are arranged in an inner hexagon rotated
-$frac{\pi}{6}$ relative to each cell. Now we take the spring constant to be $k$
+$\frac{\pi}{6}$ relative to each cell. Now we take the spring constant to be $k$
 between masses within the same cell and $\tilde{k}$ between masses in adjacent
 cells.
+%TODO: Complete discussion of hexagonal lattice
 
 \subsection{Band gap formed from perturbing the lattice}
 
-
+\subsection{2d hexagonal strip}
