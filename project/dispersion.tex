@@ -5,7 +5,18 @@ will see that this relation is of utmost importance when discussing periodic
 lattices as only waves of certain frequencies are transmitted by the lattice.
 
 \section{1d lattice}
-% TODO: Add image to show model
+\begin{center}
+  \begin{tikzpicture}
+  {[start chain,every on chain/.style=join, every join/.style=-,
+    state/.style={circle,draw,minimum size=2cm}]
+     \node[on chain] (A) {$\cdots$};
+     \node[on chain,state] (B) {$M_{n-1}$};
+     \node[on chain,state] (C) {$M_n$};
+     \node[on chain,state] (D) {$M_{n+1}$};
+     \node[on chain] (E) {$\cdots$};
+  }
+  \end{tikzpicture}
+\end{center}
 Let us start our discussion with the most basic one-dimensional case. In this
 case, we have masses of equal mass, $m$ spread out evenly across one dimension.
 All neighbouring masses are connected by an elastic force which scales
