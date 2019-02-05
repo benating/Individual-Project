@@ -8,7 +8,7 @@ lattices as only waves of certain frequencies are transmitted by the lattice.
 \begin{center}
   \begin{tikzpicture}
   {[start chain,every on chain/.style=join, every join/.style=-,
-    state/.style={circle,draw,minimum size=2cm}]
+    state/.style={circle,draw,minimum size=1.5cm}]
      \node[on chain] (A) {$\cdots$};
      \node[on chain,state] (B) {$M_{n-1}$};
      \node[on chain,state] (C) {$M_n$};
@@ -79,14 +79,28 @@ Hence, from \eqref{eq:HLN2L}, we see that
 
 \begin{align}
   &\left(-\frac{m}{k}\Omega^{2}+2-e^{-i\kappa}-e^{i\kappa}\right)y_{n}=0 \\
-  \Rightarrow &\cos\left(\kappa\right)=\frac{2m}{k}\Omega^{2}+4
+  \Rightarrow &\cos\left(\kappa\right)=-\frac{m}{2k}\Omega^{2}+1
 \end{align}
 
-Therefore, we now have an equation linking the wave number $k$ and the
+Therefore, we now have an equation linking the wave number $\kappa$ and the
 frequency $\Omega$ of waves propagating across our 1d lattice. By initialising
 $m$ and $k$ we can use this equation to plot the dispersion curve of our
 system. By setting $m=k=1$, we get the dispersion curve in Figure
 ~\ref{fig:dc1}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/1ddispersion.png}
+\caption{\label{fig:dc1}Dispersion relation of a 1d monoatomic
+         chain.}
+\end{figure}
+
+The first interesting thing to notice about this dispersion relation is that
+the curve seems to be periodically repeating. More precisely, if we look at the
+curve between $-\pi$ and $\pi$, we can see that translating this portion of the
+graph left or right will give us the rest of the dispersion relation. This range
+of wave numbers is known as the first Brillouin zone, which we will discuss
+more in the context of 2d lattices in Chapter \ref{brizones}.
 
 \section{2d square lattice}
 We now extend this analysis to an infinite 2d square lattice. Each elementary
@@ -109,6 +123,7 @@ four coupled second order differential equations.
 %TODO: Complete discussion of square lattice
 
 \subsection{Brillouin zones}
+\label{brizones}
 The concept of Brillouin zones was first defined by Leon Brillouin in his book
 on wave propagation in periodic structures.\cite{brillouin}
 %TODO: Complete discussion of brillouin zones
