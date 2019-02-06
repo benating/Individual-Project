@@ -7,7 +7,7 @@ lattices as only waves of certain frequencies are transmitted by the lattice.
 \section{1d lattice}
 \begin{center}
   \begin{tikzpicture}
-  {[start chain,every on chain/.style=join, every join/.style=-,
+  {[start chain,every on chain/.style=join,every join/.style=-,
     state/.style={circle,draw,minimum size=1.5cm}]
      \node[on chain] (A) {$\cdots$};
      \node[on chain,state] (B) {$M_{n-1}$};
@@ -103,13 +103,26 @@ This range of wave numbers is known as the first Brillouin zone, which we will
 discuss more in the context of 2d lattices in Chapter \ref{brizones}.
 
 \section{2d square lattice}
-We now extend this analysis to an infinite 2d square lattice. Each elementary
-square cell contains four masses $M_i$ for $i\in\left[1, 4\right]$ which are
-arranged clockwise from the top right. We take $n$ and $m$ to be the vertical
-and horizonal directions respectively, so that relative to cell $(n, m)$ we
-have cell $(n 1 m)$ on above and cell $(n,m+1)$ to the right. With this setup,
-we can now label each mass uniquely, e.g. $M_i$ in cell $(n, m)$ is labelled
-$M_i^{n,m}$.
+\begin{center}
+  \begin{tikzpicture}
+{[start chain,every node/.style={circle,draw},every join/.style=-]
+\foreach \X in {-2,2,...,-2}
+{\foreach \Y in {-2,2,...,-2} 
+  {[start chain]
+   \node[on chain,join] at (\X+1,\Y+1) {$M_{1}$};
+   \node[on chain,join] at (\X+1,\Y-1) {$M_{2}$};
+   \node[on chain,join] at (\X-1,\Y-1) {$M_{3}$};
+   \node[on chain] at (\X-1,\Y+1) {$M_{4}$};}}}
+  \end{tikzpicture}
+\end{center}
+
+We now extend this analysis to an infinite two-dimensional square lattice. Each
+elementary square cell contains four masses $M_i$ for $i\in\left[1, 4\right]$
+which are arranged clockwise from the top right. We take $n$ and $m$ to be the
+vertical and horizonal directions respectively, so that relative to cell $(n,
+m)$ we have cell $(n+1,m)$ above and cell $(n,m+1)$ to the right. With this
+setup, we can now label each mass uniquely, e.g. $M_i$ in cell $(n, m)$ is
+labelled $M_i^{n,m}$.
 
 Each mass is elastically connected to its direct neighbours, e.g. $M_1^{n,m}$
 is connected to $M_2^{n,m}$, $M_4^{m,n}$, $M_2^{n,m+1}$ and $M_4^{n+1,m}$. We
@@ -117,9 +130,9 @@ have the spring constant $k$ between masses in the same cell and $\tilde{k}$
 between masses in adjacent cells.
 
 Now again we consider only nearest neighbour interactions. Focusing on the
-elementary cell $(n,m)$ and the cells its adjacent cells, using Hooke's law and
-Newton's 2nd law on each of the masses in cell $(n,m)$, we see that we can form
-four coupled second order differential equations.
+elementary cell $(n,m)$ and its adjacent cells, using Hooke's law and Newton's
+2nd law on each of the masses in cell $(n,m)$, we see that we can form four
+coupled second order differential equations.
 %TODO: Complete discussion of square lattice
 
 \subsection{Brillouin zones}
