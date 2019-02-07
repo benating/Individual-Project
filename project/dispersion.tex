@@ -53,7 +53,7 @@ Taking $y_n$ to be the general wave solution
 \begin{align}
   &y_{n}=\hat{y}_{n}e^{-i\Omega t} \\
   \Rightarrow &\frac{d^{2}}{dt^{2}}y_{n}=-\Omega^{2}y_{n} \\
-  \Rightarrow &F_{n}=-m\Omega^{2}y_{n}a \label{eq:N2L}
+  \Rightarrow &F_{n}=-m\Omega^{2}y_{n} \label{eq:N2L}
 \end{align}
 
 where $\Omega$ is the frequency of the wave and $\hat{y}_{n}$ is the complex
@@ -67,9 +67,12 @@ Therefore, we have by \eqref{eq:HL} and \eqref{eq:N2L} that
     \label{eq:HLN2L}
 \end{align}
 
-Now since we have that $M_{n-1}$ and $M_{n+1}$ are equidistant from $M_{n}$ at
-equilibrium (i.e. the lattice is periodic), we can describe the phase shift in
-the wave solution as
+Since we can write this differential equation for any of our masses in our
+infinite lattice, we would need to solve an infinite number of coupled second
+order differential equations. However, the trick we use is that since we have
+that $M_{n-1}$ and $M_{n+1}$ are equidistant from $M_{n}$ at equilibrium (i.e.
+the lattice is periodic), we can make use of Bloch's theorem\cite{bloch} to
+describe the phase shift in the wave solution as
 
 \begin{align}
   y_{n-1}=e^{-i\kappa}y_n,\ \ y_{n+1}=e^{i\kappa}y_n
@@ -119,20 +122,95 @@ discuss more in the context of 2d lattices in Chapter \ref{brizones}.
 We now extend this analysis to an infinite two-dimensional square lattice. Each
 elementary square cell contains four masses $M_i$ for $i\in\left[1, 4\right]$
 which are arranged clockwise from the top right. We take $n$ and $m$ to be the
-vertical and horizonal directions respectively, so that relative to cell $(n,
+vertical and horizontal directions respectively, so that relative to cell $(n,
 m)$ we have cell $(n+1,m)$ above and cell $(n,m+1)$ to the right. With this
-setup, we can now label each mass uniquely, e.g. $M_i$ in cell $(n, m)$ is
-labelled $M_i^{n,m}$.
+setup, we can now label each mass and its displacement uniquely, e.g. $M_i$ in
+cell $(n, m)$ is labelled $M_i^{n,m}$ and has displacement $y_i^{n,m}$.
+
+\textit{Note:} Though we use this system to refer to specific masses in
+specific cells, the mass of each mass is determined solely by its position in
+its cell, i.e. $\forall n,m\in\mathbb{Z}$, the mass of $M_i^{n,m}=M_i$.
 
 Each mass is elastically connected to its direct neighbours, e.g. $M_1^{n,m}$
-is connected to $M_2^{n,m}$, $M_4^{m,n}$, $M_2^{n,m+1}$ and $M_4^{n+1,m}$. We
+is connected to $M_2^{n,m}$, $M_4^{n,m}$, $M_2^{n+1,m}$ and $M_4^{n,m+1}$. We
 have the spring constant $k$ between masses in the same cell and $\tilde{k}$
 between masses in adjacent cells.
 
 Now again we consider only nearest neighbour interactions. Focusing on the
 elementary cell $(n,m)$ and its adjacent cells, using Hooke's law and Newton's
-2nd law on each of the masses in cell $(n,m)$, we see that we can form four
-coupled second order differential equations.
+2nd law on each of the masses in cell $(n,m)$, we can get a second order
+differential equation which is coupled to the displacements of the other masses
+it is connected to. For example, considering $M_1^{n,m}$, we get
+
+\begin{align}
+  F_1=M_1\frac{d^{2}}{dt^{2}}y_1^{n,m}
+      =k\left(y_2^{n,m}+y_4^{n,m}-2y_1^{n,m}\right)+
+       \tilde{k}\left(y_2^{n-1,m}+y_4^{n,m+1}-2y_1^{n,m}\right)
+\label{eq:2dM1}
+\end{align}
+
+Since we can write this differential equation for any of our masses in our
+infinite lattice, we would get an infinite number of coupled second order
+differential equation. However, similar to the 1d case, using the periodicity
+of the lattice and Bloch's theorem once more, we can relate the displacements
+of each mass to the corresponding mass in a \textit{base cell} with the lattice
+vectors $\kappa_y$ and $\kappa_x$, i.e.
+
+\begin{align}
+  y_i^{n+N,m+M}=e^{i\left(N\kappa_y+M\kappa_x\right)}y_i^{n,m}\ \ \ \ 
+      \forall N,M\in\mathbb{Z}
+\end{align}
+
+With this, instead of an infinite number of equations, we have a set of four
+coupled second order differential equations, one for each $y_i^{n,m}$ for
+$i\in\left[1,4\right]$. We now drop the superscripts $\left(n,m\right)$ and
+assume we have a wave solution of the form  
+
+\begin{align}
+  &y_{i}=\hat{y}_{i}e^{-i\Omega t} \\
+  \Rightarrow &\frac{d^{2}}{dt^{2}}y_{i}=-\Omega^{2}y_{i} \\
+  \Rightarrow &F_{i}=-M_i\Omega_i^{2}y_{i} \label{eq:N2L}
+\end{align}
+
+where $\Omega$ is the frequency of the wave and $\hat{y}_{n}$ is the complex
+amplitude. We can now rewrite \eqref{eq:2dM1} as
+
+\begin{align}
+  M_1\Omega_1^{2}y_1
+      &=k\left(2y_1-y_2-y_4\right)+
+       \tilde{k}\left(2y_1-y_{2}e^{-i\kappa_y}-y_{4}e^{i\kappa_x}\right) \\
+      &=\left(2k+2\tilde{k}\right)y_1+\left(-k-\tilde{k}e^{-i\kappa_y}\right)y_2+
+       \left(-k-\tilde{k}e^{i\kappa_x}\right)y_4
+\end{align}
+
+By constructing this equation for each $y_i$, we can reformulated these four
+difference equations as an eigenvalue problem
+
+\begin{align}
+  \left[\matr{A(\kappa)}+\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+\end{align}
+
+where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
+$\matr{M}=\diag\left(\left\{M_i^2\right\}\right)$,
+$\vec{y}=\left[\left\{y_i\right\}\right]^T$ and
+
+\begin{align}
+  \matr{A(\kappa)}=\left[
+\begin{array}{cccc}
+2k+\tilde{k} & -k-\tilde{k}e^{-i\kappa_{y}} & 0 & -k-\tilde{k}e^{i\kappa_{x}}\\
+-k-\tilde{k}e^{i\kappa_{y}} & 2k+\tilde{\tilde{k}} & -k-\tilde{k}e^{i\kappa_{x}} & 0\\
+0 & -k-\tilde{k}e^{-i\kappa_{x}} & 2k+\tilde{\tilde{k}} & -k-\tilde{k}e^{i\kappa_{y}}\\
+-k-\tilde{k}e^{-i\kappa_{x}} & 0 & -k-\tilde{k}e^{-i\kappa_{y}} & 2k+\tilde{\tilde{k}}
+\end{array}\right]
+\end{align}
+
+Therefore, we can solve for the eigenvalues and eigenvectors of this equation.
+The eigenvalues of this equation correspond to the frequency of waves,
+$\Omega$, which are allowed through our lattice. However, the next question of
+arises: How should we vary $\kappa$ so that we get a good enough picture of the
+full dispersion relation of our 2d lattice?
+
+To answer this question, we first have to discuss the theory of Brillouin zones.
 %TODO: Complete discussion of square lattice
 
 \subsection{Brillouin zones}
