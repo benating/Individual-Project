@@ -76,3 +76,64 @@ Metamaterials have the potential to solve many modern engineering problems.
 \item Developing energy splitters.\cite{toposplit}
 \item Developing perfect lenses.\cite{negrefraclens}
 \end{itemize}
+
+\section{Models studied}
+There are many different models which we can use to study the effects of
+metamaterials on the waves which propagate through them. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/flexplate.png}
+\caption{\label{fig:flexplate} Schematic view of a thin plate flexural wave
+         model which consists of an array of resonators attached to a thin
+         elastic plate. Each resonator is a point mass attached to the plate by
+         a spring.\cite{graphene}}
+\end{figure}
+
+In the literature, thin plate flexural wave theories,\cite{graff,toelastic} as
+seen in Figure~\ref{fig:flexplate}, have proven to be highly effective physical
+models and reliable predictors of physical wave phenomena as shown by the
+numerous studies done on flexural (or bending) waves in a beam or a
+plate.\cite{flexbeam,graphene,mehulgeom} This is very advantageous as most
+acoustic (or sound) radiation travels as flexural waves through structures and
+deforms the medium transversely as they propagate.\cite{sound} Therefore, these
+models are very useful in studying acoustic metamaterials or phononic
+crystals.\cite{phonon} As a specific example, an elastic analogue of graphene,
+a honeycomb arrangement of mass-spring resonators attached to a thin elastic
+plate, was shown which could be used as waveguides.\cite{graphene}
+
+Having said that, the equations which govern the propagation of flexural waves
+are much more complicated than those for a simple mass-spring system and
+requires more background knowledge in its physics to properly understand and
+implement. As an example, the biharmonic equation which governs the propagation
+of flexural waves in a lattice of mass-spring resonators is a fourth-order
+partial differential equation.
+
+Along the same lines, the modelling of electromagnetic metamaterials present
+the challenges of getting to grips with the theory of electromagnetic
+radiation, e.g. Maxwell's equations\cite{maxwell} and Bragg
+scattering\cite{bragg}.
+
+\begin{figure}
+\centering
+  \begin{tikzpicture}
+    \clip (-1,-1) rectangle (7,7);
+    \foreach \X in {-2,0,...,6}
+    {\foreach \Y in {-2,0,...,6}
+     {\draw[decorate,decoration={coil,aspect=0.5,amplitude=0.5mm, segment
+    length=1.5mm}] (\X,\Y) -- ++(0,2) -- ++(2,0);
+    \node[circle,inner color=white,outer color=black] at (\X,\Y) {};}}
+  \end{tikzpicture}
+  \caption{\label{fig:ourmodel} Schematic view of our simple mass-spring model.}
+\end{figure}
+
+Given the timeline of this project, the limited Physics background I have, as
+well as to make the results accessible to a wider audience, we have decided to
+go for a simplistic masses-connected-by-springs model, as seen in
+Figure~\ref{fig:ourmodel}, as the core object of study in our project. Not only
+does this reduce the complexity as we only need to deal with ordinary
+differential equations and not partial differential equations, it also reduces
+the complexity in the scattering simulations as we now have to solve a discrete
+system instead of a continuous one. With this \textit{toy} system, we will be
+able to more quickly lay the foundations required to carry out more interesting
+experiments, from which results can be transferred to other models.
