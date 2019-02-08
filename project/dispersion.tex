@@ -109,15 +109,24 @@ discuss more in the context of 2d lattices in Chapter \ref{brizones}.
 %% TODO: Fix 2d model
 \begin{center}
   \begin{tikzpicture}
-{[start chain,every node/.style={circle,draw},every join/.style=-]
-\foreach \X in {-2,2,...,-2}
-{\foreach \Y in {-2,2,...,-2} 
-  {[start chain]
-   \node[on chain,join] at (\X+1,\Y+1) {$M_{1}$};
-   \node[on chain,join] at (\X+1,\Y-1) {$M_{2}$};
-   \node[on chain,join] at (\X-1,\Y-1) {$M_{3}$};
-   \node[on chain] at (\X-1,\Y+1) {$M_{4}$};}}}
+    \clip (-1,-1) rectangle (7,7);
+    \foreach \X in {-2,0,...,6}
+    {\foreach \Y in {-2,0,...,6}
+     {\draw[decorate,decoration={coil,aspect=0.5,amplitude=0.5mm, segment
+    length=1.5mm}] (\X,\Y) -- ++(0,2) -- ++(2,0);
+    \node[circle,inner color=white,outer color=black] at (\X,\Y) {};}}
   \end{tikzpicture}
+ 
+%%  \begin{tikzpicture}
+%%{[start chain,every node/.style={circle,draw},every join/.style=-]
+%%\foreach \X in {-2,2,...,-2}
+%%{\foreach \Y in {-2,2,...,-2} 
+%%  {[start chain]
+%%   \node[on chain,join] at (\X+1,\Y+1) {$M_{1}$};
+%%   \node[on chain,join] at (\X+1,\Y-1) {$M_{2}$};
+%%   \node[on chain,join] at (\X-1,\Y-1) {$M_{3}$};
+%%   \node[on chain] at (\X-1,\Y+1) {$M_{4}$};}}}
+%%  \end{tikzpicture}
 \end{center}
 
 We now extend this analysis to an infinite two-dimensional square lattice. Each
