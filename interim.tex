@@ -1,0 +1,69 @@
+\documentclass[a4paper, twoside]{report}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[superscript,biblabel]{cite} %% Small superscript references
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+%% Technical drawing package
+\usepackage{tikz}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes,decorations.pathmorphing}
+
+%% Math commands for formatting
+\newcommand{\matr}[1]{\mathbf{#1}}
+\DeclareMathOperator{\diag}{diag}
+
+\title{Directing Wave Propagation by Topological Perturbation in Metamaterials}
+\author{Bernard Ting}
+
+\begin{document}
+\input{title/title.tex}
+
+\begin{abstract}
+We first introduce the theory of dispersion curves and plot them for simple
+models. We then break the symmetry by introducing masses of different weights
+and observe how this affects the dispersion curves. We then investigate these
+structures in the case of media composed of one symmetry breaking ribbon above
+another. We use this to find special frequencies or modes which are present in
+the band gap. Scattering simulations are run with these frequencies induced to
+the lattice to confirm our analysis.
+\end{abstract}
+
+\renewcommand{\abstractname}{Acknowledgements}
+\begin{abstract}
+I would like to extend my greatest thanks to my supervisor, Prof. Richard
+Craster, for his advice and guidance on all matters relating to the project. I
+would also like to thank Dr. Christopher Ford for being my second marker and
+providing timely feedback regarding my project.
+\end{abstract}
+
+\tableofcontents
+%% \listoffigures
+%% \listoftables
+
+\input{introduction/introduction.tex}
+\input{background/background.tex}
+\input{project/dispersion.tex}
+\input{project/perturbed.tex}
+\input{project/scattering.tex}
+\input{evaluation/evaluation.tex}
+\input{conclusion/conclusion.tex}
+\input{interim/project_plan.tex}
+\input{interim/evaluation_plan.tex}
+\input{appendix/appendix.tex}
+
+\bibliographystyle{unsrt}
+\bibliography{bibs/bibliography}
+
+\end{document}
