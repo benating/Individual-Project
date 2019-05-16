@@ -5,6 +5,7 @@ will see that this relation is of utmost importance when discussing periodic
 lattices as only waves of certain frequencies are transmitted by the lattice.
 
 \section{1d lattice}
+\begin{figure}[!h]
 \begin{center}
   \begin{tikzpicture}
   {[start chain,every on chain/.style=join,every join/.style=-,
@@ -16,7 +17,10 @@ lattices as only waves of certain frequencies are transmitted by the lattice.
      \node[on chain] (E) {$\cdots$};
   }
   \end{tikzpicture}
+  \caption{\label{fig:sqscheme1d} Schematic view of our 1d model.}
 \end{center}
+\end{figure}
+
 Let us start our discussion with the most basic one-dimensional case. In this
 case, we have masses of equal mass, $m$ spread out evenly across one dimension.
 All neighbouring masses are connected by an elastic force which scales
@@ -110,56 +114,35 @@ This range of wave numbers is known as the first Brillouin zone, which we will
 discuss more in the context of 2d lattices in Chapter \ref{brizones}.
 
 \section{2d square lattice}
-\begin{center}
-  \begin{tikzpicture}
-    \clip (-1,-1) rectangle (7,7);
-    \foreach \X in {-1,0,...,3}
-    {\foreach \Y in {-1,0,...,3}
-     {\draw[decorate,decoration={aspect=0.5,amplitude=0.5mm, segment
-    length=1.5mm}] (\X*2,\Y*2) -- ++(0,2) -- ++(2,0);
-    \node[circle,draw,inner color=white,minimum size=0.5cm] at (\X*2,\Y*2) {};}}
-  \end{tikzpicture}
-\end{center}
- 
-\begin{center}
-  \begin{tikzpicture}
-    \clip (-1.6,-1.6) rectangle (4.6,4.6);
-    \foreach \X in {-1,0,...,1}
-    {\foreach \Y in {-1,0,...,1}
-     {\draw[decorate,decoration={aspect=1,amplitude=1mm, segment
-    length=5mm}] (\X*3,\Y*3) -- ++(0,3) -- ++(3,0);}}
-    \node[circle,draw,inner color=white,minimum size=2cm] at (0,0) {$M_{i}^{n,m}$};
-    \node[circle,draw,inner color=white,minimum size=2cm] at (0,3) {$M_{i}^{n+1,m}$};
-    \node[circle,draw,inner color=white,minimum size=2cm] at (3,0) {$M_{i}^{n,m+1}$};
-    \node[circle,draw,inner color=white,minimum size=2cm] at (3,3) {$M_{i}^{n+1,m+1}$};
-  \end{tikzpicture}
-\end{center}
- 
-%%  \begin{tikzpicture}
-%%{[start chain,every node/.style={circle,draw},every join/.style=-]
-%%\foreach \X in {-2,2,...,-2}
-%%{\foreach \Y in {-2,2,...,-2} 
-%%  {[start chain]
-%%   \node[on chain,join] at (\X+1,\Y+1) {$M_{1}$};
-%%   \node[on chain,join] at (\X+1,\Y-1) {$M_{2}$};
-%%   \node[on chain,join] at (\X-1,\Y-1) {$M_{3}$};
-%%   \node[on chain] at (\X-1,\Y+1) {$M_{4}$};}}}
-%%  \end{tikzpicture}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/sqmodel.png}
+\caption{\label{fig:sqscheme} Schematic view of our 2d model. Each square
+  tile in the grid corresponds to one elementary cell with four masses. $k$ and
+  $\tilde{k}$ represent the intra- and inter-cell spring constants
+  respectively. The cell in the far bottom right shows the directions of the
+  Bloch phases. Note that only the elastic interactions involving the masses in
+  cell $(n,m)$ are shown to avoid cluttering the figure, although they exist
+  within and between each cell.}
+\end{figure}
 
-We now extend this analysis to an infinite two-dimensional square lattice. Each
-elementary square cell contains four masses $M_i$ for $i\in\left[1, 4\right]$
-which are arranged clockwise from the top right. We take $n$ and $m$ to be the
-vertical and horizontal directions respectively, so that relative to cell $(n,
-m)$ we have cell $(n+1,m)$ above and cell $(n,m+1)$ to the right. With this
-setup, we can now label each mass and its displacement uniquely, e.g. $M_i$ in
-cell $(n, m)$ is labelled $M_i^{n,m}$ and has displacement $y_i^{n,m}$.
+We now extend this analysis to an infinite two-dimensional square lattice, as
+described in Figure~\ref{fig:sqscheme}. Each elementary square cell contains
+four masses $M_i$ for $i\in\left[1, 4\right]$ which are arranged clockwise from
+the top right. We take $n$ and $m$ to be the vertical and horizontal directions
+respectively, with $n$ increasing downwards and $m$ increasing to the right, so
+that relative to cell $(n, m)$ we have cell $(n-1,m)$ above and cell $(n,m+1)$
+to the right. We have decided to go with this convention as it reflects matrix
+indexing in Matlab, which will simplify our code. With this setup, we can now
+label each mass and its displacement uniquely, e.g. $M_i$ in cell $(n, m)$ is
+labelled $M_i^{n,m}$ and has displacement $y_i^{n,m}$.
 
 \textit{Note:} Though we use this system to refer to specific masses in
 specific cells, the mass of each mass is determined solely by its position in
 its cell, i.e. $\forall n,m\in\mathbb{Z}$, the mass of $M_i^{n,m}=M_i$.
 
 Each mass is elastically connected to its direct neighbours, e.g. $M_1^{n,m}$
-is connected to $M_2^{n,m}$, $M_4^{n,m}$, $M_2^{n+1,m}$ and $M_4^{n,m+1}$. We
+is connected to $M_2^{n,m}$, $M_4^{n,m}$, $M_2^{n-1,m}$ and $M_4^{n,m+1}$. We
 have the spring constant $k$ between masses in the same cell and $\tilde{k}$
 between masses in adjacent cells.
 
@@ -210,11 +193,11 @@ amplitude. We can now rewrite \eqref{eq:2dM1} as
        \left(-k-\tilde{k}e^{i\kappa_x}\right)y_4
 \end{align}
 
-By constructing this equation for each $y_i$, we can reformulated these four
+By constructing this equation for each $y_i$, we can reformulate these four
 difference equations as an eigenvalue problem
 
 \begin{align}
-  \left[\matr{A(\kappa)}+\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+  \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)+\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
 \end{align}
 
 where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
@@ -222,7 +205,7 @@ $\matr{M}=\diag\left(\left\{M_i^2\right\}\right)$,
 $\vec{y}=\left[\left\{y_i\right\}\right]^T$ and
 
 \begin{align}
-  \matr{A(\kappa)}=\left[
+  \matr{A}\left(\kappa_{x},\kappa_{y}\right)=\left[
 \begin{array}{cccc}
 2k+\tilde{k} & -k-\tilde{k}e^{-i\kappa_{y}} & 0 & -k-\tilde{k}e^{i\kappa_{x}}\\
 -k-\tilde{k}e^{i\kappa_{y}} & 2k+\tilde{\tilde{k}} & -k-\tilde{k}e^{i\kappa_{x}} & 0\\
@@ -239,22 +222,210 @@ arises: How should we vary $\kappa$ so that we get a good enough picture of the
 full dispersion relation of our 2d lattice?
 
 To answer this question, we first have to discuss the theory of Brillouin zones.
-%TODO: Complete discussion of square lattice
 
 \subsection{Brillouin zones}
 \label{brizones}
 The concept of Brillouin zones was first defined by Leon Brillouin in his book
-on wave propagation in periodic structures.\cite{brillouin}
-%TODO: Complete discussion of brillouin zones
+on wave propagation in periodic structures.\cite{brillouin} The Brillouin zone
+is a particular choice of the unit cell of the reciprocal lattice, which
+represents the Fourier transform of another lattice. In our case, our model
+lattice is a periodic spatial function in real space, and so its reciprocal
+lattice exists as a function of frequency in reciprocal space.
+
+As we are able to tessellate our physical lattice with a periodically repeating
+unit cell, so there exists a unit reciprocal cell which can cover the
+reciprocal space without overlap. A Brillouin zone is a particular choice of
+this reciprocal cell and is constructed as the set of points enclosed by the
+Bragg planes. The Bragg planes exist in reciprocal space and are the planes
+perpendicular to a straight line from the origin to each lattice point. These
+concepts are described visually for a 2d square real lattice in
+Figure~\ref{fig:bzonesq}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/bzonesq.png}
+\caption{\label{fig:bzonesq} On the left is the lattice points in real space.
+    In the middle is the corresponding reciprocal lattice. On the right is the
+    construction of the first Brillouin zone: straight lines are drawn from the
+    origin to the other lattice points (red), their perpendicular bisectors are
+    the Bragg planes (blue), and the innermost region enclosed by the Bragg
+    planes is the first Brilloin zone (yellow). Image and caption adapted from
+    source.\cite{MITnp}}
+\end{figure}
+%TODO: Explain image equations?
+
+Now that we have a uniquely defined unit cell in the reciprocal lattice, we
+only have to consider solutions which occur in this region, as all distinct
+Bloch waves occur within the first Brillouin zone. To simplify it even further,
+there is a related concept called the irreducible Brillouin zone, which is the
+first Brillouin zone reduced by the all of its symmetries. This can be seen for
+the 2d square lattice in Figure~\ref{fig:ibzonesq}.
+%TODO: Cite theorem of proof that ^ is true
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.3\textwidth]{imgs/ibzonesq.png}
+\caption{\label{fig:ibzonesq} The irreducible Brillouin zone of the 2d square
+    lattice in reciprocal space (purple). Image adapted from
+    source.\cite{surfandbulk}}
+\end{figure}
+
+With these concepts, we can fully solve the dispersion relation over our
+infinite lattice space by just finding the solutions within the irreducible
+Brillouin zone. Even more, given that standing waves are only present on the
+boundary of the irreducible Brillouin zone, we only need to solve the
+dispersion relation over the boundary.
+%TODO: Is it because of standing waves??
+
+Therefore for this case of a infinite 2d square lattice, we first find the 
+%TODO: Find dispersion relation of 2d square lattice
 
 \section{2d hexagonal lattice}
-We will now consider how waves propagate across a 2d lattice made of hexagonal elementary cells. 
+We will now consider how waves propagate across a 2d lattice made of hexagonal
+elementary cells. 
 
-%TODO: Add image to show model
-Consider an infinite 2d plane made of hexagonal unit cells of six masses $M_i$
-for $i\in\left[1,6\right]$, which are arranged in an inner hexagon rotated
-$\frac{\pi}{6}$ relative to each cell. Now we take the spring constant to be $k$
-between masses within the same cell and $\tilde{k}$ between masses in adjacent
-cells.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexmodel.png}
+\caption{\label{fig:hexscheme} Schematic view of our 2d hexagonal model. Each
+  hexagonal tile in the grid corresponds to one elementary cell with six
+  masses. $k$ and $\tilde{k}$ represent the intra- and inter-cell spring
+  constants respectively. The cell in the far bottom right shows the directions
+  of the Bloch phases. Note that only the elastic interactions involving the
+  masses in cell $(n,m)$ are shown to avoid cluttering the figure, although
+  they exist within and between each cell.}
+\end{figure}
+
+As described in Figure~\ref{fig:hexscheme}, consider an infinite 2d plane made
+of hexagonal unit cells of six masses $M_i$ for $i\in\left[1,6\right]$, which
+are arranged in an inner hexagon rotated $\frac{\pi}{6}$ relative to each cell.
+Now we take the spring constant to be $k$ between masses within the same cell
+and $\tilde{k}$ between masses in adjacent cells.
+
+Similarly to the 2d square lattice, we again consider only nearest neighbour
+interactions and focus on the elementary cell $(n,m)$ and its adjacent cells.
+Using Hooke's law and Newton's 2nd law on each of the masses in cell $(n,m)$,
+we can get a second order differential equation which is coupled to the
+displacements of the other masses it is connected to. For example, considering
+$M_1^{n,m}$, we get
+
+\begin{align}
+  F_1=M_1\frac{d^{2}}{dt^{2}}y_1^{n,m}
+      =k\left(y_2^{n,m}+y_6^{n,m}-2y_1^{n,m}\right)+
+       \tilde{k}\left(y_4^{n,m+1}-2y_1^{n,m}\right)
+\label{eq:2dH1}
+\end{align}
+
+Now again we can use the periodicity of the lattice and Bloch's theorem to
+relate the displacements of any mass to the displacement of the corresponding
+mass in a \textit{base cell} using the lattice vectors shown in
+Figure~\ref{fig:hexscheme}:
+
+\begin{equation}
+  \Delta_1=\sqrt{3}\kappa_x+\kappa_y
+\label{eq:hexvec1}
+\end{equation}
+
+\begin{equation}
+  \Delta_2=\sqrt{3}\kappa_x-\kappa_y
+\label{eq:hexvec2}
+\end{equation}
+
+\begin{equation}
+  \Delta_3=2\kappa_y
+\label{eq:hexvec3}
+\end{equation}
+
+With these, we can write out the relationship between the displacements for
+neighbouring cells, e.g. for cell $(n,m)$ and its six nearest neighbours we
+have
+
+\begin{equation}
+  y_4^{n,m+1}=e^{i\Delta_1}y_4^{n,m}
+\label{eq:hexrelate4}
+\end{equation}
+
+\begin{equation}
+  y_5^{n+1,m+1}=e^{i\Delta_2}y_5^{n,m}
+\label{eq:hexrelate5}
+\end{equation}
+
+\begin{equation}
+  y_6^{n+1,m}=e^{-i\Delta_3}y_6^{n,m}
+\label{eq:hexrelate6}
+\end{equation}
+
+\begin{equation}
+  y_1^{n,m-1}=e^{-i\Delta_1}y_1^{n,m}
+\label{eq:hexrelate1}
+\end{equation}
+
+\begin{equation}
+  y_2^{n-1,m-1}=e^{-i\Delta_2}y_2^{n,m}
+\label{eq:hexrelate2}
+\end{equation}
+
+\begin{equation}
+  y_3^{n-1,m}=e^{i\Delta_3}y_3^{n,m}
+\label{eq:hexrelate3}
+\end{equation}
+
+Using these, dropping the superscripts and again assuming we have a Bloch wave
+solution, \eqref{eq:2dH1} can be rewritten as 
+
+\begin{align}
+M_1\Omega_1^{2}y_1
+      &=\left(2k+\tilde{k}\right)y_1-ky_2-\tilde{k}e^{i\Delta_1}y_4-ky_6
+\label{eq:2dH2}
+\end{align}
+
+Similarly to the 2d square model case, we can construct this equation for each
+$y_i$ and then reformulate the six difference equations as an eigen-problem
+
+\begin{align}
+  \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)+\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+\end{align}
+
+where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
+$\matr{M}=\diag\left(\left\{M_i^2\right\}\right)$,
+$\vec{y}=\left[\left\{y_i\right\}\right]^T$ and now
+
+\begin{align}
+  \matr{A}\left(\kappa_{x},\kappa_{y}\right)=\left[
+\begin{array}{cccccc}
+2k+\tilde{k} & -k & 0 & -\tilde{k}e^{i\Delta_1} & 0 & -k\\
+-k & 2k+\tilde{k} & -k & 0 & -\tilde{k}e^{i\Delta_2} & 0\\
+0 & -k & 2k +\tilde{k} & -k & 0 & -\tilde{k}e^{-i\Delta_3}\\
+-\tilde{k}e^{-i\Delta_1} & 0 & -k & 2k+\tilde{k} & -k & 0\\
+0 & -\tilde{k}e^{-i\Delta_2} & 0 & -k & 2k+\tilde{k} & -k\\
+-k & 0 & -\tilde{k}e^{i\Delta_3} & 0 & -k & 2k+\tilde{k}
+\end{array}\right]
+\end{align}
+
+We will again use the theory of Brillouin zones as described in Chapter
+\ref{brizones} to simplify the work we need to do in order to understand the
+dispersion relation of this 2d hexagonal lattice.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/bzonehex.png}
+\caption{\label{fig:bzonehex} On the left is the lattice points in real space.
+    In the middle is the corresponding reciprocal lattice. On the right is the
+    construction of the first Brillouin zone: straight lines are drawn from the
+    origin to the other lattice points (red), their perpendicular bisectors are
+    the Bragg planes (blue), and the innermost region enclosed by the Bragg
+    planes is the first Brilloin zone (yellow). Image and caption adapted from
+    source.\cite{MITnp}}
+\end{figure}
+%TODO: Explain image equations?
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.3\textwidth]{imgs/ibzonehex.png}
+\caption{\label{fig:ibzonesq} The irreducible Brillouin zone of the 2d
+    hexagonal lattice in reciprocal space (purple). Image adapted from
+    source.\cite{surfandbulk}}
+\end{figure}
+
 %TODO: Complete discussion of hexagonal lattice
 
