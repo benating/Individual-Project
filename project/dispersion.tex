@@ -198,6 +198,7 @@ difference equations as an eigenvalue problem
 
 \begin{align}
   \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)+\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+\label{eq:sqeig}
 \end{align}
 
 where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
@@ -264,10 +265,9 @@ the 2d square lattice in Figure~\ref{fig:ibzonesq}.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.3\textwidth]{imgs/ibzonesq.png}
+\includegraphics[width=0.3\textwidth]{imgs/sqibz.png}
 \caption{\label{fig:ibzonesq} The irreducible Brillouin zone of the 2d square
-    lattice in reciprocal space (purple). Image adapted from
-    source.\cite{surfandbulk}}
+    lattice in reciprocal space (blue).}
 \end{figure}
 
 With these concepts, we can fully solve the dispersion relation over our
@@ -277,8 +277,29 @@ boundary of the irreducible Brillouin zone, we only need to solve the
 dispersion relation over the boundary.
 %TODO: Is it because of standing waves??
 
-Therefore for this case of a infinite 2d square lattice, we first find the 
-%TODO: Find dispersion relation of 2d square lattice
+Therefore for this case of an infinite 2d square lattice, we first solve the
+eigen-problem we have in \eqref{eq:sqeig} over the boundary of the irreducible
+Brillouin zone as shown in Figure~\ref{fig:ibzonesq}. We do this in Matlab by
+varying the values of $\kappa_{x}$ and $\kappa_{y}$ which correspond to the
+locus of points on the boundary of the irreducible Brillouin zone, and then
+solve the eigen-problem for the eigenvalues and eigenvectors, which represent
+$\matr{Omega}$ and $\vec{y}$ respectively. Then, we get the dispersion relation
+by plotting out $\Omega_i$ against $(\kappa_x,\kappa_y$ or the position on the
+Brillouin zone.
+
+\textit{Note}: The significance of the eigenvectors or $y_i$ will be discussed
+more in Chapter \ref{}.
+%TODO: Do we need to use the eigenvectors?
+
+We first need to find the values of $\kappa_{x}$ and $\kappa_{y}$ at $\Gamma$,
+$X$ and $M$ as shown in Figure~\ref{fig:ibzonesq}.
+%TODO: What should the limits of kappa_x and kappa_y be?
+
+With this, and assuming that all masses $M_i=1$ for now (we will explore how
+different perturbations in the lattice affect the dispersion relation in
+Chapter \ref{perturbed}), we get the dispersion relation in
+Figure~\ref{fig:sqdisper}. 
+%TODO: Plot dispersion relation of 2d square lattice and explain?
 
 \section{2d hexagonal lattice}
 We will now consider how waves propagate across a 2d lattice made of hexagonal
@@ -295,6 +316,7 @@ elementary cells.
   masses in cell $(n,m)$ are shown to avoid cluttering the figure, although
   they exist within and between each cell.}
 \end{figure}
+%TODO: Check if this figure actually corresponds to our hex model. Source says it's for a triangular model
 
 As described in Figure~\ref{fig:hexscheme}, consider an infinite 2d plane made
 of hexagonal unit cells of six masses $M_i$ for $i\in\left[1,6\right]$, which
@@ -384,6 +406,7 @@ $y_i$ and then reformulate the six difference equations as an eigen-problem
 
 \begin{align}
   \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)+\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+\label{eq:hexeig}
 \end{align}
 
 where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
@@ -421,10 +444,26 @@ dispersion relation of this 2d hexagonal lattice.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.3\textwidth]{imgs/ibzonehex.png}
-\caption{\label{fig:ibzonesq} The irreducible Brillouin zone of the 2d
-    hexagonal lattice in reciprocal space (purple). Image adapted from
-    source.\cite{surfandbulk}}
+\includegraphics[width=0.3\textwidth]{imgs/hexibz.png}
+\caption{\label{fig:ibzonehex} The irreducible Brillouin zone of the 2d
+    hexagonal lattice in reciprocal space (blue).}
+\end{figure}
+
+Now as before, we can solve the dispersion relation over our infinite lattice
+by just solving it over the boundary of the irreducible Brillouin as shown in
+Figure~\ref{fig:ibzonehex}. First, let us find the values of $\kappa_{x}$ and
+$\kappa_{y}$ at $\Gamma$, $K$ and $M$ as shown in the figure. We take
+$\Gamma=(0,0)$ since it is the origin. 
+%TODO: How to get K and M?
+
+With this, and taking $M_i=k=\tilde{k}=1$ for simplicity, we get the dispersion
+relation in Figure~\ref{fig:hexdisper}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexdisper.png}
+\caption{\label{fig:hexdisper} The dispersion relation of the 2d hexagonal
+    lattice with $M_i=k=\tilde{k}=1$.}
 \end{figure}
 
 %TODO: Complete discussion of hexagonal lattice
