@@ -226,12 +226,13 @@ To answer this question, we first have to discuss the theory of Brillouin zones.
 
 \subsection{Brillouin zones}
 \label{brizones}
+%TODO: Molding the flow of light might be useful
 The concept of Brillouin zones was first defined by Leon Brillouin in his book
 on wave propagation in periodic structures.\cite{brillouin} The Brillouin zone
-is a particular choice of the unit cell of the reciprocal lattice, which
-represents the Fourier transform of another lattice. In our case, our model
-lattice is a periodic spatial function in real space, and so its reciprocal
-lattice exists as a function of frequency in reciprocal space.
+is a particular choice of the unit cell of the reciprocal lattice, where a
+reciprocal lattice represents the Fourier transform of another lattice. In our
+case, our model lattice is a periodic spatial function in real space, and so
+its reciprocal lattice exists as a function of frequency in reciprocal space.
 
 As we are able to tessellate our physical lattice with a periodically repeating
 unit cell, so there exists a unit reciprocal cell which can cover the
@@ -321,8 +322,6 @@ elementary cells.
 As described in Figure~\ref{fig:hexscheme}, consider an infinite 2d plane made
 of hexagonal unit cells of six masses $M_i$ for $i\in\left[1,6\right]$, which
 are arranged in an inner hexagon rotated $\frac{\pi}{6}$ relative to each cell.
-Now we take the spring constant to be $k$ between masses within the same cell
-and $\tilde{k}$ between masses in adjacent cells.
 
 Similarly to the 2d square lattice, we again consider only nearest neighbour
 interactions and focus on the elementary cell $(n,m)$ and its adjacent cells.
@@ -334,7 +333,7 @@ $M_1^{n,m}$, we get
 \begin{align}
   F_1=M_1\frac{d^{2}}{dt^{2}}y_1^{n,m}
       =k\left(y_2^{n,m}+y_6^{n,m}-2y_1^{n,m}\right)+
-       \tilde{k}\left(y_4^{n,m+1}-2y_1^{n,m}\right)
+       \tilde{k}\left(y_4^{n,m+1}-y_1^{n,m}\right)
 \label{eq:2dH1}
 \end{align}
 
@@ -344,12 +343,12 @@ mass in a \textit{base cell} using the lattice vectors shown in
 Figure~\ref{fig:hexscheme}:
 
 \begin{equation}
-  \Delta_1=\sqrt{3}\kappa_x+\kappa_y
+  \Delta_1=\sqrt{3}\kappa_x-\kappa_y
 \label{eq:hexvec1}
 \end{equation}
 
 \begin{equation}
-  \Delta_2=\sqrt{3}\kappa_x-\kappa_y
+  \Delta_2=\sqrt{3}\kappa_x+\kappa_y
 \label{eq:hexvec2}
 \end{equation}
 
@@ -466,5 +465,71 @@ relation in Figure~\ref{fig:hexdisper}.
     lattice with $M_i=k=\tilde{k}=1$.}
 \end{figure}
 
-%TODO: Complete discussion of hexagonal lattice
+%TODO: Complete discussion of hex dispersion relation
 
+\section{2d kagome lattice}
+We will now investigate the kagome lattice, which is also known as the
+trihexagonal tiling as it consists of triangles surrounding hexagons, as shown
+in Figure~\ref{fig:kagomescheme}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/kagomemodel.png}
+\caption{\label{fig:kagomescheme} Schematic view of our 2d kagome model. Each
+  hexagonal tile in the grid corresponds to one elementary cell with three
+  masses. $k$ and $\tilde{k}$ represent the intra- and inter-cell spring
+  constants respectively. The cell in the far bottom right shows the directions
+  of the Bloch phases. Note that only the elastic interactions involving the
+  masses in cell $(n,m)$ are shown to avoid cluttering the figure, although
+  they exist within and between each cell.}
+\end{figure}
+
+Now again playing the same game as before, we can construct second order
+differential equations which couple the displacements of connected masses. For
+example, considering $M_1^{n,m}$, we get
+
+\begin{align}
+  F_1=M_1\frac{d^{2}}{dt^{2}}y_1^{n,m}
+      =k\left(y_2^{n,m}+y_3^{n,m}-2y_1^{n,m}\right)+
+       \tilde{k}\left(y_2^{n-1,m}+y_3^{n,m+1}-2y_1^{n,m}\right)
+\label{eq:2dK1}
+\end{align}
+
+Due to the similarities in the shape of the elementary cell of the kagome
+lattice and the hexagonal lattice, the Bloch phases are the same and we can
+reuse \eqref{eq:hexvec1}, \eqref{eq:hexvec2} and \eqref{eq:hexvec3} as lattice
+vectors. In doing so, we find the following relationships:
+
+\begin{equation}
+  y_1^{n+1,m}=e^{i\Delta_3}y_1^{n,m}
+\label{eq:kagomerelate1a}
+\end{equation}
+
+\begin{equation}
+  y_1^{n,m-1}=e^{-i\Delta_1}y_1^{n,m}
+\label{eq:kagomerelate1b}
+\end{equation}
+
+\begin{equation}
+  y_2^{n-1,m}=e^{-i\Delta_3}y_2^{n,m}
+\label{eq:kagomerelate2a}
+\end{equation}
+
+\begin{equation}
+  y_2^{n-1,m-1}=e^{-i\Delta_2}y_2^{n,m}
+\label{eq:kagomerelate2b}
+\end{equation}
+
+\begin{equation}
+  y_3^{n,m+1}=e^{i\Delta_1}y_3^{n,m}
+\label{eq:kagomerelate3a}
+\end{equation}
+
+\begin{equation}
+  y_3^{n+1,m+1}=e^{i\Delta_2}y_3^{n,m}
+\label{eq:kagomerelate3b}
+\end{equation}
+
+%TODO: Form equations up till eigenproblem
+
+%TODO: Add kagome dispersion relation
