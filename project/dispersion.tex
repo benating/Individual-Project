@@ -179,7 +179,8 @@ assume we have a wave solution of the form
 \begin{align}
   &y_{i}=\hat{y}_{i}e^{-i\Omega t} \\
   \Rightarrow &\frac{d^{2}}{dt^{2}}y_{i}=-\Omega^{2}y_{i} \\
-  \Rightarrow &F_{i}=-M_i\Omega_i^{2}y_{i} \label{eq:N2L}
+  \Rightarrow &F_{i}=-M_i\Omega_i^{2}y_{i}
+\label{eq:wavesol}
 \end{align}
 
 where $\Omega$ is the frequency of the wave and $\hat{y}_{n}$ is the complex
@@ -197,7 +198,7 @@ By constructing this equation for each $y_i$, we can reformulate these four
 difference equations as an eigenvalue problem
 
 \begin{align}
-  \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)+\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+  \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)-\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
 \label{eq:sqeig}
 \end{align}
 
@@ -392,7 +393,7 @@ have
 \end{equation}
 
 Using these, dropping the superscripts and again assuming we have a Bloch wave
-solution, \eqref{eq:2dH1} can be rewritten as 
+solution as described in \eqref{eq:wavesol}, \eqref{eq:2dH1} can be rewritten as 
 
 \begin{align}
 M_1\Omega_1^{2}y_1
@@ -404,7 +405,7 @@ Similarly to the 2d square model case, we can construct this equation for each
 $y_i$ and then reformulate the six difference equations as an eigen-problem
 
 \begin{align}
-  \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)+\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+  \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)-\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
 \label{eq:hexeig}
 \end{align}
 
@@ -530,6 +531,62 @@ vectors. In doing so, we find the following relationships:
 \label{eq:kagomerelate3b}
 \end{equation}
 
+With these, and assuming we have a Bloch wave solution as described in
+\eqref{eq:wavesol}, we can rewrite \eqref{eq:2dK1} as
+
+\begin{align}
+M_1\Omega_1^{2}y_1
+      &=\left(2k+2\tilde{k}\right)y_1+\left(-k-\tilde{k}e^{-i\Delta_3}\right)y_2+\left(-k-\tilde{k}e^{i\Delta_1}\right)y_3
+\label{eq:2dK2}
+\end{align}
+
+Again, by forming these equations for each of the three masses, and then
+combining them into one matrix equation, we get the following eigen-problem.
+
+\begin{align}
+  \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)-\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+\label{eq:kagomeeig}
+\end{align}
+
+where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
+$\matr{M}=\diag\left(\left\{M_i^2\right\}\right)$,
+$\vec{y}=\left[\left\{y_i\right\}\right]^T$ and now
+
+\begin{align}
+  \matr{A}\left(\kappa_{x},\kappa_{y}\right)=\left[
+\begin{array}{ccc}
+2k+2\tilde{k} & -k-\tilde{k}e^{-i\Delta_3} & -k-\tilde{k}e^{i\Delta_1} \\
+-k-\tilde{k}e^{i\Delta_3} & 2k+2\tilde{k} & -k-\tilde{k}e^{i\Delta_2} \\
+-k-\tilde{k}e^{-i\Delta_1} & -k-\tilde{k}e^{-i\Delta_2} & 2k+2\tilde{k} 
+\end{array}\right]
+\end{align}
+
 %TODO: Form equations up till eigenproblem
 
-%TODO: Add kagome dispersion relation
+Again given the similarities between the kagome and hexagonal lattice, the
+irreducible Brillouin zones happen to be identical as seen in
+Figure~\ref{fig:ibzonekagome}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.3\textwidth]{imgs/kagomeibz.png}
+\caption{\label{fig:ibzonekagome} The irreducible Brillouin zone of the 2d
+    kagome lattice in reciprocal space (blue).}
+\end{figure}
+
+By solving this eigen-problem along the boundaries of the irreducible Brillouin
+zone shown, we get the dispersion relation in Figure~\ref{fig:kagomedisper}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/kagomedisper.png}
+\caption{\label{fig:kagomedisper} The dispersion relation of the 2d kagome
+    lattice with $M_i=k=\tilde{k}=1$.}
+\end{figure}
+
+What is really interesting about this dispersion relation is that there is one
+eigenvalue solution which is constant over the boundary of the irreducible
+Brillouin zone; but not only that, it is actually constant over the entire
+space!
+%TODO: Explain why there is a flat line in kagome dispersion relation
+%TODO: Explain significance of dispersion relation
