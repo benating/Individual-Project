@@ -10,12 +10,25 @@ with the top half possessing one set of properties and the bottom half
 possessing a different set of properties. We will see that this cause an
 interesting phenomenon to occur at the boundary of the two halves.
 
-\textit{Note}: As the hexagonal model contains more symmetries due to the shape
-of its elementary cell, we will be focusing on perturbing these models, but the
-same can be done for the square lattice as well. 
+\textit{Note}: As the hexagonal and kagome lattices contain more symmetries due
+to the shape of their elementary cell, we will be focusing on perturbing these
+models, but the same can be done for the square lattice as well. 
 
-\section{Band gap formed}
+\section{Band gap}
 \label{formbandgap}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/bandgapex.png}
+\caption{\label{fig:bandgapex} Example of bandgap (purple) formed in dispersion
+  relation of hex lattice when $k=1$ and $\tilde{k}=100$.}
+\end{figure}
+
+A band gap, also called an energy gap, is an energy range where no wave states
+can exist. In terms of our lattices, this corresponds to a range of frequencies
+where waves are unable to propagate through the material; and in graphs of
+dispersion relations, it is seen as gaps in the frequency axis where no line
+is present. An example is shown in Figure~\ref{fig:bandgapex}. 
 %TODO: What is a bandgap?
 
 
@@ -24,5 +37,34 @@ same can be done for the square lattice as well.
 
 \section{2d hexagonal strip}
 \label{formstrip}
+%TODO: How does bandgap relate to the dispersion along the boundary?
 
-\section{Formulation of semi-infinite hexagonal lattice}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.4\textwidth]{imgs/hexstripmodel.png}
+\caption{\label{fig:hexstripmodel} Schematic view of the 2d hexagonal
+  semi-infinite lattice made from an infinite number of strips connected
+  side-by-side. Each strip is composed of 2N cells, with the top half of cells
+  above the boundary (green) possessing a set of properties and the bottom half
+  possessing a separate set of properties.}
+\end{figure}
+
+Now we assemble $2N$ hexagonal cells together into a strip. We will subscript
+the values corresponding to the top half and bottom half with $t$ and $b$
+respectively, e.g. $k_t$ to refer to the inner spring constants for the top
+half and $M_{1,b}$ to refer to the mass of mass $1$ in the bottom half. We set
+the outer spring constant, $\tilde{k}_t=\tilde{k}_b=\tilde{k}$ to be the same
+throughout the strip, to ensure that it agrees on both sides of the boundary or
+interface.
+
+\section{2d kagome strip}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.4\textwidth]{imgs/kagomestripmodel.png}
+\caption{\label{fig:kagomestripmodel} Schematic view of the 2d kagome
+  semi-infinite lattice made from an infinite number of strips connected
+  side-by-side. Each strip is composed of 2N cells, with the top half of cells
+  above the boundary (green) possessing a set of properties and the bottom half
+  possessing a separate set of properties.}
+\end{figure}
