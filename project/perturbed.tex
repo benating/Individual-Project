@@ -21,7 +21,7 @@ models, but the same can be done for the square lattice as well.
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/bandgapex.png}
 \caption{\label{fig:bandgapex} Example of bandgap (purple) formed in dispersion
-  relation of hex lattice when $k=1$ and $\tilde{k}=100$.}
+  relation of hex lattice when $k=2$ and $\tilde{k}=1$.}
 \end{figure}
 
 A band gap, also called an energy gap, is an energy range where no wave states
@@ -33,6 +33,22 @@ is present. An example is shown in Figure~\ref{fig:bandgapex}.
 
 %TODO: Form bandgaps for hex and kagome cell
 \section{2d bulk hexagonal perturbation}
+One way to perturb our bulk hexagonal lattice is by breaking one of its
+rotational symmetries. Currently our hexagonal lattice has six-fold rotational
+symmetry, i.e. rotating our cells by $\frac{2pi}{6}$ do not change them. We can
+reduce this to a three-fold symmetry by alternating the masses such that
+$M_1=M_3=M_5 \neq M_2=M_4=M_6$.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexperturbM.png}
+\caption{\label{fig:hexM} The effect of alternating the masses $M_i$ on the
+  dispersion relation of the bulk hexagonal system, with all other parameters
+  set to $1$.}
+\end{figure}
+
+In Figure~\ref{fig:hexM}, we see that alternating masses has opened up the
+double dirac point at $\Gamma$ and formed a bandgap.
 
 \section{2d bulk kagome perturbation}
 Similarly to the hexagonal case, we can perturb the different parameters in our
@@ -42,14 +58,16 @@ bulk kagome system to see what effects they have on the dispersion relation.
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/kagomeperturbM.png}
 \caption{\label{fig:kagomeM} The effect of perturbing the mass $M$ on the
-  dispersion relation of the bulk kagome system.}
+  dispersion relation of the bulk kagome system, with all other parameters set
+  to $1$.}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/kagomeperturbk.png}
 \caption{\label{fig:kagomek} The effect of perturbing the inner stiffness $k$
-  on the dispersion relation of the bulk kagome system.}
+  on the dispersion relation of the bulk kagome system, with all other
+  parameters set to $1$.}
 \end{figure}
 
 We can see the effects that perturbing the mass $M$ and inner stiffness $k$
@@ -72,7 +90,8 @@ give us the same dispersion relation as the unperturbed system?
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/kagomeperturb2.png}
 \caption{\label{fig:kagome2} The effect of perturbing both the mass $M$ and the
-  inner stiffness $k$ on the dispersion relation of the bulk kagome system.}
+  inner stiffness $k$ on the dispersion relation of the bulk kagome system,
+  with all other parameters set to $1$.}
 \end{figure}
 
 \section{Band gap inversion}
