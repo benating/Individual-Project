@@ -35,7 +35,7 @@ is present. An example is shown in Figure~\ref{fig:bandgapex}.
 \section{2d bulk hexagonal perturbation}
 One way to perturb our bulk hexagonal lattice is by breaking one of its
 rotational symmetries. Currently our hexagonal lattice has six-fold rotational
-symmetry, i.e. rotating our cells by $\frac{2pi}{6}$ do not change them. We can
+symmetry, i.e. rotating our cells by $\frac{2\pi}{6}$ do not change them. We can
 reduce this to a three-fold symmetry by alternating the masses such that
 $M_1=M_3=M_5 \neq M_2=M_4=M_6$.
 
@@ -49,6 +49,7 @@ $M_1=M_3=M_5 \neq M_2=M_4=M_6$.
 
 In Figure~\ref{fig:hexM}, we see that alternating masses has opened up the
 double dirac point at $\Gamma$ and formed a bandgap.
+%TODO: What is a dirac point?
 
 \section{2d bulk kagome perturbation}
 Similarly to the hexagonal case, we can perturb the different parameters in our
@@ -111,13 +112,88 @@ give us the same dispersion relation as the unperturbed system?
   possessing a separate set of properties.}
 \end{figure}
 
-Now we assemble $2N$ hexagonal cells together into a strip. We will subscript
-the values corresponding to the top half and bottom half with $t$ and $b$
-respectively, e.g. $k_t$ to refer to the inner spring constants for the top
-half and $M_{1,b}$ to refer to the mass of mass $1$ in the bottom half. We set
-the outer spring constant, $\tilde{k}_t=\tilde{k}_b=\tilde{k}$ to be the same
-throughout the strip, to ensure that it agrees on both sides of the boundary or
-interface.
+Now we assemble $2N$ hexagonal cells together into a strip and form a
+semi-infinite hexagonal lattice by joining these strips from side-to-side as
+shown in Figure~\ref{fig:hexstripmodel}. We will subscript the values
+corresponding to the top half and bottom half with $t$ and $b$ respectively,
+e.g. $k_t$ to refer to the inner spring constants for the top half and
+$M_{1,b}$ to refer to the mass of mass $1$ in the bottom half. We set the outer
+spring constant, $\tilde{k}_t=\tilde{k}_b=\tilde{k}$ to be the same throughout
+the strip, to ensure that it agrees on both sides of the boundary or interface.
+
+Using the same reasonings in Chapter \ref{2dhexdisper} to form equations
+between adjacent cells, we can also form an eigen-problem as before (where the
+size of our matrix is now $(2N \times 6) \times (2N \times 6)$ instead of $6
+\times 6$). The only difference and extra care we have to take is to insert the
+right coupling terms between masses in different cells, e.g. $M_3$ is not
+connected to $M_6$ displaced by some phase shift anymore, but is connected to
+$M_6$ in the cell below. Specifically we get, %TODO: Add equations for 2,5 and
+3,6
+
+Also we impose the periodic boundary condition at the top and bottom edges by
+coupling the top and bottom cells together across the edge. This essentially
+gives us an infinite lattice, which allows us to use all the theorems we have
+been using before, and if we take $N$ to be large enough, the exponential decay
+of the wavefunctions across the strip is great enough to ensure our solution
+approximates the real semi-infinite lattice well enough. Specifically, we
+impose
+%TODO: Fix blabber on periodic boundary condition and add boundary equations
+
+With those, we can finally form the eigen-problem
+
+\begin{align}
+  \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)-\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
+\label{eq:hexstripeig}
+\end{align}
+
+where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
+$\matr{M}_{t}=\diag\left(\left\{M_{i,t}\right\}\right)$,
+$\matr{M}_{b}=\diag\left(\left\{M_{i,b}\right\}\right)$,
+\begin{align}
+\matr{M}=\left[
+\begin{array}{cccccc}
+\matr{M}_{t}\\
+ & \ddots &  &  & 0\\
+ &  & \matr{M}_{t}\\
+ &  &  & \matr{M}_{b}\\
+ & 0 &  &  & \ddots\\
+ &  &  &  &  & \matr{M}_{b}
+\end{array}\right],
+\end{align}
+
+\begin{align}
+\vec{y}=\left[
+\begin{array}{c}
+y_1^{(1)}\\
+\vdots\\
+y_6^{(1)}\\
+\vdots\\
+y_1^{(2N)}\\
+\vdots\\
+y_6^{(2N)}\\
+\end{array}\right],
+\end{align}
+
+\begin{align}
+  \matr{A}\left(\kappa_{x},\kappa_{y}\right)=\left[
+\begin{array}{ccc}
+2k+2\tilde{k} & -k-\tilde{k}e^{-i\Delta_3} & -k-\tilde{k}e^{i\Delta_1} \\
+-k-\tilde{k}e^{i\Delta_3} & 2k+2\tilde{k} & -k-\tilde{k}e^{i\Delta_2} \\
+-k-\tilde{k}e^{-i\Delta_1} & -k-\tilde{k}e^{-i\Delta_2} & 2k+2\tilde{k} 
+\end{array}\right]
+\end{align}
+%TODO: Fix A
+
+Solving this with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$ over the irreducible
+Brilloun zone gives us the dispersion relation in
+Figure~\ref{fig:hexstripdisper}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexstrip.png}
+\caption{\label{fig:hexstripdisper} Dispersion relation of a hexagonal strip
+  with $N=20$ (40 cells in total) with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$.}
+\end{figure}
 
 \section{2d kagome strip}
 %TODO: Derive IBZ
@@ -131,6 +207,10 @@ interface.
   above the boundary (green) possessing a set of properties and the bottom half
   possessing a separate set of properties.}
 \end{figure}
+
+As we have just done in the hexagonal case, we assemble $2N$ kagome cells
+together into a strip and form a semi-infinite lattice with these strips
+connected left-to-right as shown in Figure~\ref{fig:kagomestripmodel}.
 
 Using the same conventions as the hexagonal strip case, we form the eigen-problem 
 
