@@ -33,6 +33,11 @@ is present. An example is shown in Figure~\ref{fig:bandgapex}.
 
 %TODO: Form bandgaps for hex and kagome cell
 \section{2d bulk hexagonal perturbation}
+Due to the many symmetries of the hexagonal lattice, there are many different
+ways for us to perturb its structure and break its symmetry. These all lead to
+slightly different effects on the dispersion relation.
+
+\subsection{Alternating masses}
 One way to perturb our bulk hexagonal lattice is by breaking one of its
 rotational symmetries. Currently our hexagonal lattice has six-fold rotational
 symmetry, i.e. rotating our cells by $\frac{2\pi}{6}$ do not change them. We can
@@ -50,6 +55,10 @@ $M_1=M_3=M_5 \neq M_2=M_4=M_6$.
 In Figure~\ref{fig:hexM}, we see that alternating masses has opened up the
 double dirac point at $\Gamma$ and formed a bandgap.
 %TODO: What is a dirac point?
+%TODO: Add diagram showing rhombuses and how alternating has removed symmetry
+
+\subsection{Varying mass and stiffnesses}
+%TODO: To include or not to include?
 
 \section{2d bulk kagome perturbation}
 Similarly to the hexagonal case, we can perturb the different parameters in our
@@ -127,8 +136,8 @@ size of our matrix is now $(2N \times 6) \times (2N \times 6)$ instead of $6
 \times 6$). The only difference and extra care we have to take is to insert the
 right coupling terms between masses in different cells, e.g. $M_3$ is not
 connected to $M_6$ displaced by some phase shift anymore, but is connected to
-$M_6$ in the cell below. Specifically we get, %TODO: Add equations for 2,5 and
-3,6
+$M_6$ in the cell below. Specifically we get, 
+%TODO: Add equations for 2,5 and 3,6
 
 Also we impose the periodic boundary condition at the top and bottom edges by
 coupling the top and bottom cells together across the edge. This essentially
@@ -137,7 +146,13 @@ been using before, and if we take $N$ to be large enough, the exponential decay
 of the wavefunctions across the strip is great enough to ensure our solution
 approximates the real semi-infinite lattice well enough. Specifically, we
 impose
-%TODO: Fix blabber on periodic boundary condition and add boundary equations
+%TODO: Fix blabber on periodic boundary condition
+
+\begin{align}
+  \matr{A}_{6,6(2N-1)+3}&=\matr{A}_{6(2N-1)+3,6}=-\tilde{k} \\
+  \matr{A}_{5,6(2N-1)+2}&=-\tilde{k}e^{-i\Delta_1} \\
+  \matr{A}_{6(2N-1)+2,5}&=-\tilde{k}e^{i\Delta_1} 
+\end{align}
 
 With those, we can finally form the eigen-problem
 
@@ -212,7 +227,16 @@ As we have just done in the hexagonal case, we assemble $2N$ kagome cells
 together into a strip and form a semi-infinite lattice with these strips
 connected left-to-right as shown in Figure~\ref{fig:kagomestripmodel}.
 
-Using the same conventions as the hexagonal strip case, we form the eigen-problem 
+Using the same conventions as the hexagonal strip case and similarly imposing
+periodic boundary conditions at the top and bottom edge, i.e.
+
+\begin{align}
+  \matr{A}_{1,3(2N-1)+2}&=\matr{A}_{3(2N-1)+2,1}=-\tilde{k} \\
+  \matr{A}_{3,3(2N-1)+2}&=-\tilde{k}e^{-i\Delta_1} \\
+  \matr{A}_{3(2N-1)+2,3}&=-\tilde{k}e^{i\Delta_1} 
+\end{align} 
+
+we form the eigen-problem 
 
 \begin{align}
   \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)-\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
