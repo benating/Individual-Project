@@ -68,13 +68,28 @@ one of the \textit{global} symmetries that we get.
 If you look at our hexagonal lattice and focus on the springs connecting our
 masses, you can see that we have two different hexagons being formed, one
 within each cell and also another between three adjacent cells meeting at a
-vertex. When we have $k=tilde{k}$, the inner and outer springs "tug" on the
+vertex. When we have $k=\tilde{k}$, the inner and outer springs "tug" on the
 masses the same amount, and so the two different hexagons we were talking about
 before are of exactly the same proportions. However, when we modify our system
 such that the inner stiffness is greater, say, than the outer stiffness, the
 inner hexagons within each cell will be more "tightly pulled in" on itself and
 in turn causing the outer hexagons to become bigger.
 %TODO: Add figure to show the hexagon sizes changing
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexperturb2.png}
+\caption{\label{fig:hex2} The effect of perturbing the masses $M_i$ and
+  $k$ on the dispersion relation of the bulk hexagonal system, with all other
+  parameters set to $1$.}
+\end{figure}
+
+We can see in Figure~\ref{fig:hex2} that increasing both the mass and inner
+stiffness as well as decreasing both the mass and inner stiffness leads to the
+formation of a bandgap. Also notice that overall the magnitude of the bands are
+about the same as the original bulk system we had. We take a closer look at how
+changing $M_i$ and changing $k$ individually affect the dispersion relation in
+the kagome lattice in Chapter \ref{kagomeperturb}.
 
 %TODO: To include or not to include?
 \section{2d hexagonal strip}
@@ -242,8 +257,28 @@ With this knowledge, we are then able to start trying to force energy to
 propagate in the directions we desire in Chapter \ref{scattering}.
 
 \subsection{Varying mass and stiffnesses}
+We can do the same thing in this case, but instead of making the bottom layer a
+rotation of the top layer, we make the top have a greater $M_i$ and $k$ and the
+bottom have a lower $M_i$ and $k$. As we have seen in
+Figure~\ref{fig:hexperturb2}, we have one increased and one decreased system
+which have similar bandgaps. As such, we will be using those two configurations
+to form our strip.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexstripperturb2.png}
+\caption{\label{fig:hexstrip2} The effect of having the top material of a
+  hexagonal strip have higher $M_i$ and $k$ than the bottom material on the
+  dispersion relation of the bulk kagome system, with all other parameters set
+  to $1$.}
+\end{figure}
+
+As before we again get a well-defined bandgap, as well as two wave states which
+are present in the bandgap and therefore can propagate along the interface.
 
 \section{2d bulk kagome perturbation}
+\label{kagomeperturb}
+
 Similarly to the hexagonal case, we can perturb the different parameters in our
 bulk kagome system to see what effects they have on the dispersion relation.
 
