@@ -31,7 +31,9 @@ dispersion relations, it is seen as gaps in the frequency axis where no line
 is present. An example is shown in Figure~\ref{fig:bandgapex}. 
 %TODO: What is a bandgap?
 
-%TODO: Form bandgaps for hex and kagome cell
+\section{Band gap inversion}
+%TODO: Decide if want to include
+
 \section{2d bulk hexagonal perturbation}
 Due to the many symmetries of the hexagonal lattice, there are many different
 ways for us to perturb its structure and break its symmetry. These all lead to
@@ -75,54 +77,6 @@ in turn causing the outer hexagons to become bigger.
 %TODO: Add figure to show the hexagon sizes changing
 
 %TODO: To include or not to include?
-
-\section{2d bulk kagome perturbation}
-Similarly to the hexagonal case, we can perturb the different parameters in our
-bulk kagome system to see what effects they have on the dispersion relation.
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.8\textwidth]{imgs/kagomeperturbM.png}
-\caption{\label{fig:kagomeM} The effect of perturbing the mass $M$ on the
-  dispersion relation of the bulk kagome system, with all other parameters set
-  to $1$.}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.8\textwidth]{imgs/kagomeperturbk.png}
-\caption{\label{fig:kagomek} The effect of perturbing the inner stiffness $k$
-  on the dispersion relation of the bulk kagome system, with all other
-  parameters set to $1$.}
-\end{figure}
-
-We can see the effects that perturbing the mass $M$ and inner stiffness $k$
-have on the bulk kagome system. In the case of varying $M$ in
-Figure~\ref{fig:kagomeM}, increasing $M$ decreases or constrains the dispersion
-relation, while decreasing $M$ increases or widens the dispersion relation. 
-
-However, in the case of varying $k$ in Figure~\ref{fig:kagomek}, we see the inverse
-effect; increasing $k$ increases or widens the dispersion relation, while
-decreasing $k$ decreases or constrains the dispersion relation. Another
-interesting thing to notice about changing $k$ is that it causes the formation
-of a bandgap!
-
-With these two inverse relationships, we are naturally propelled to ask what
-happens if we combine both of these effects together. For example, by
-increasing $M$ and increasing $k$, would the two effects \textit{cancel out} to
-give us the same dispersion relation as the unperturbed system?
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.8\textwidth]{imgs/kagomeperturb2.png}
-\caption{\label{fig:kagome2} The effect of perturbing both the mass $M$ and the
-  inner stiffness $k$ on the dispersion relation of the bulk kagome system,
-  with all other parameters set to $1$.}
-\end{figure}
-
-\section{Band gap inversion}
-%TODO: Decide if want to include
-
 \section{2d hexagonal strip}
 \label{formstrip}
 %TODO: How does bandgap relate to the dispersion along the boundary?
@@ -215,15 +169,122 @@ y_6^{(2N)}\\
 \end{align}
 %TODO: Fix A
 
+Now with this eigen-problem, all we have left to do is figure out what the
+irreducibled Brillouin zone for our ribbon system is.
+%TODO: Add derivation of IBZ for hexagonal ribbon system
+
 Solving this with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$ over the irreducible
 Brilloun zone gives us the dispersion relation in
-Figure~\ref{fig:hexstripdisper}.
+Figure~\ref{fig:hexstripdisper}, which corresponds to what we see in
+Figure~\ref{fig:hexdisper}!.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/hexstrip.png}
 \caption{\label{fig:hexstripdisper} Dispersion relation of a hexagonal strip
   with $N=20$ (40 cells in total) with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$.}
+\end{figure}
+
+As we have just done in Chapter \ref{formstrip}, we will see what happens to
+the dispersion relation when we set the two layers of the lattice to have
+different properties as those before which opened up a band gap.
+
+\subsection{Alternating masses}
+Using our results of the formation of a bandgap in, let us first see what
+happens when we create a hexagonal strip where the top and bottom have the same
+property of alternating masses. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexstripperturbM.png}
+\caption{\label{fig:hexstripM} The effect of alternating masses (with the top
+  and bottom layer the same configuration) on the dispersion relation of the
+  hexagonal strip system, with all other parameters set to $1$.}
+\end{figure}
+
+Again, we see in Figure~\ref{fig:hexstripM} that basically the dispersion
+relation we get corresponds to that of Figure~\ref{fig:hexM}, where there is a
+bandgap present. This is all fine and good but we can do something even better.
+
+In this system, the two layers of materials are the same which means that
+essentially
+%TODO: What is the significance of two different materials?
+
+So with that in mind, let us change the bottom layer into a different
+configuration. The easiest way of perturbing it so that we still get the exact
+same dispersion relation in the bulk case is to rotate the cell by
+$\frac{2\pi}{6}$. This is because locally (at the cellular level), nothing has
+changed and if we form a bulk system from the rotated cell we still get the
+same bulk system but rotated, but this does not affect the frequencies of waves
+allowed to propagate. So even if we stack the two different types of cells on
+each other, we would expect the same bandgap to be present, since locally each
+cell exhibits that property. However if we now consider the global symmetry
+when stacking the two different materials on top of each other, we can see that
+we have broken some sort of translational symmetry and so would expect
+something different in the dispersion relation.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexstripperturbMrotated.png}
+\caption{\label{fig:hexstripMrotated} The effect of alternating masses (with
+  bottom layer as a $\frac{2\pi}{6}$ rotation of the top layer) on the
+  dispersion relation of the hexagonal strip system, with all other parameters
+  set to $1$.}
+\end{figure}
+
+As expected, we see that in Figure~\ref{fig:hexstripMrotated} we get pretty
+much the same dispersion relation as in Figure~\ref{fig:hexstripM} but with two
+curious lines in the bandgap! This is really interesting and useful for us
+because this means that all the frequencies along the two lines in the bandgap
+are only able to propagate along the centre line of the semi-infinite lattice
+we constructed, i.e. along the boundary and not anywhere else in the lattice.
+With this knowledge, we are then able to start trying to force energy to
+propagate in the directions we desire in Chapter \ref{scattering}.
+
+\subsection{Varying mass and stiffnesses}
+
+\section{2d bulk kagome perturbation}
+Similarly to the hexagonal case, we can perturb the different parameters in our
+bulk kagome system to see what effects they have on the dispersion relation.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/kagomeperturbM.png}
+\caption{\label{fig:kagomeM} The effect of perturbing the mass $M$ on the
+  dispersion relation of the bulk kagome system, with all other parameters set
+  to $1$.}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/kagomeperturbk.png}
+\caption{\label{fig:kagomek} The effect of perturbing the inner stiffness $k$
+  on the dispersion relation of the bulk kagome system, with all other
+  parameters set to $1$.}
+\end{figure}
+
+We can see the effects that perturbing the mass $M$ and inner stiffness $k$
+have on the bulk kagome system. In the case of varying $M$ in
+Figure~\ref{fig:kagomeM}, increasing $M$ decreases or constrains the dispersion
+relation, while decreasing $M$ increases or widens the dispersion relation. 
+
+However, in the case of varying $k$ in Figure~\ref{fig:kagomek}, we see the inverse
+effect; increasing $k$ increases or widens the dispersion relation, while
+decreasing $k$ decreases or constrains the dispersion relation. Another
+interesting thing to notice about changing $k$ is that it causes the formation
+of a bandgap!
+
+With these two inverse relationships, we are naturally propelled to ask what
+happens if we combine both of these effects together. For example, by
+increasing $M$ and increasing $k$, would the two effects \textit{cancel out} to
+give us the same dispersion relation as the unperturbed system?
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/kagomeperturb2.png}
+\caption{\label{fig:kagome2} The effect of perturbing both the mass $M$ and the
+  inner stiffness $k$ on the dispersion relation of the bulk kagome system,
+  with all other parameters set to $1$.}
 \end{figure}
 
 \section{2d kagome strip}
