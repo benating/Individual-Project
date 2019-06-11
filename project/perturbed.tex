@@ -185,7 +185,7 @@ y_6^{(2N)}\\
 %TODO: Fix A
 
 Now with this eigen-problem, all we have left to do is figure out what the
-irreducibled Brillouin zone for our ribbon system is.
+irreducible Brillouin zone for our ribbon system is.
 %TODO: Add derivation of IBZ for hexagonal ribbon system
 
 Solving this with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$ over the irreducible
@@ -196,8 +196,9 @@ Figure~\ref{fig:hexdisper}!.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/hexstrip.png}
-\caption{\label{fig:hexstripdisper} Dispersion relation of a hexagonal strip
-  with $N=20$ (40 cells in total) with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$.}
+\caption{\label{fig:hexstripdisper} Dispersion relation of the semi-infinite
+  hexagonal lattice with $N=20$ (40 cells in total) with
+  $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$.}
 \end{figure}
 
 As we have just done in Chapter \ref{formstrip}, we will see what happens to
@@ -212,9 +213,9 @@ property of alternating masses.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/hexstripperturbM.png}
-\caption{\label{fig:hexstripM} The effect of alternating masses (with the top
-  and bottom layer the same configuration) on the dispersion relation of the
-  hexagonal strip system, with all other parameters set to $1$.}
+\caption{\label{fig:hexstripM} Dispersion relation of the semi-infinite
+  hexagonal lattice with alternating masses (with the top and bottom layer the
+  same configuration), with all other parameters set to $1$.}
 \end{figure}
 
 Again, we see in Figure~\ref{fig:hexstripM} that basically the dispersion
@@ -241,10 +242,10 @@ something different in the dispersion relation.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/hexstripperturbMrotated.png}
-\caption{\label{fig:hexstripMrotated} The effect of alternating masses (with
-  bottom layer as a $\frac{2\pi}{6}$ rotation of the top layer) on the
-  dispersion relation of the hexagonal strip system, with all other parameters
-  set to $1$.}
+\caption{\label{fig:hexstripMrotated} Dispersion relation of the semi-infinite
+  hexagonal lattice with alternating masses (with bottom layer as a
+  $\frac{2\pi}{6}$ rotation of the top layer), with all other parameters set to
+  $1$.}
 \end{figure}
 
 As expected, we see that in Figure~\ref{fig:hexstripMrotated} we get pretty
@@ -260,21 +261,21 @@ propagate in the directions we desire in Chapter \ref{scattering}.
 We can do the same thing in this case, but instead of making the bottom layer a
 rotation of the top layer, we make the top have a greater $M_i$ and $k$ and the
 bottom have a lower $M_i$ and $k$. As we have seen in
-Figure~\ref{fig:hexperturb2}, we have one increased and one decreased system
-which have similar bandgaps. As such, we will be using those two configurations
-to form our strip.
+Figure~\ref{fig:hex2}, we have one increased and one decreased system which
+have similar bandgaps. As such, we will be using those two configurations to
+form our strip.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/hexstripperturb2.png}
-\caption{\label{fig:hexstrip2} The effect of having the top material of a
-  hexagonal strip have higher $M_i$ and $k$ than the bottom material on the
-  dispersion relation of the bulk kagome system, with all other parameters set
-  to $1$.}
+\caption{\label{fig:hexstrip2} Dispersion relation of the semi-infinite
+  hexagonal lattice where the top material has a higher $M_i$ and $k$ than the
+  bottom material, with all other parameters set to $1$.}
 \end{figure}
 
 As before we again get a well-defined bandgap, as well as two wave states which
-are present in the bandgap and therefore can propagate along the interface.
+are present in the bandgap and therefore can only propagate along the
+interface.
 
 \section{2d bulk kagome perturbation}
 \label{kagomeperturb}
@@ -312,7 +313,9 @@ of a bandgap!
 With these two inverse relationships, we are naturally propelled to ask what
 happens if we combine both of these effects together. For example, by
 increasing $M$ and increasing $k$, would the two effects \textit{cancel out} to
-give us the same dispersion relation as the unperturbed system?
+give us the same dispersion relation as the unperturbed system? That is
+precisely what happens and can be seen in Figure~\ref{fig:kagome2} as well as
+Figure~\ref{fig:hex2}.
 
 \begin{figure}[!h]
 \centering
@@ -323,7 +326,6 @@ give us the same dispersion relation as the unperturbed system?
 \end{figure}
 
 \section{2d kagome strip}
-%TODO: Derive IBZ
 
 \begin{figure}[!h]
 \centering
@@ -394,14 +396,30 @@ y_3^{(2N)}\\
 %TODO: Fix A
 
 Solving this with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$ over the irreducible
-Brilloun zone gives us the dispersion relation in
-Figure~\ref{fig:kagomestripdisper}.
+Brilloun zone, which is again the same as the hexagonal system, gives us the
+dispersion relation in Figure~\ref{fig:kagomestripdisper}.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/kagomestrip.png}
-\caption{\label{fig:kagomestripdisper} Dispersion relation of a kagome strip
-  with $N=40$ (80 cells in total) with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$.}
+\caption{\label{fig:kagomestripdisper} Dispersion relation of the semi-infinite
+  kagome lattice with $N=40$ (80 cells in total) with
+  $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$.}
 \end{figure}
 
+Now let us try to get the dispersion relation for the semi-infinite kagome
+lattice where the top material is made of the kagome cells with increased $M_i$
+and $k$ and the bottom material is made of kagome cells decreased $M_i$ and
+$k$, as we used in Figure~\ref{fig:kagome2}.
 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/kagomestripperturbed.png}
+\caption{\label{fig:kagomeperturbed} Dispersion relation of the semi-infinite
+  kagome lattice where the top material has a higher $M_i$ and $k$ than the
+  bottom material, with all other parameters set to $1$.}
+\end{figure}
+
+Again, as in the hexagonal case, we have a bandgap with two well-defined edge
+states inside.
+%TODO: what is an edge state?
