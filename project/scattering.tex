@@ -24,29 +24,17 @@ frequencies which we will be simulating.
 Before we can run our scattering simulations, which essentially is solving for
 the displacements of masses in our finite lattice, we need to form the system
 to solve. This actually turns out to be really similar to the eigen-problems we
-had earlier (albeit with a much larger matrix involved!).
-
+had earlier (albeit with a much larger matrix involved!). It is also useful to
+note that the following derivation works just as well for systems of any shape
+as long as we have formed the eigen-problem as before, as we will reuse the
+variables in the eigen-problem here.
+ 
 The key idea in this is that we can pick and choose the frequency, $\Omega$,
 and so by just
 %TODO: Finish derivation of linear system
 
-Now, we can run our simulations for another frequency we want, but we know from our
-dispersion relations that most frequencies will just propagate throughout the
-lattice and so we would not get any discernible patterns of movement. An
-example can be found in Figure~\ref{fig:randscat}.
-
-%TODO: Add figure of scattering with uninteresting frequency
-
-As we are interested in being able to direct waves to our liking, it is much
-more exciting to fire a frequency which is only able to travel along the
-boundary.
-
-%TODO: Add figure of scattering along straight boundary
-
-From this, it is only natural to wonder if we can shape the boundary however we
-like and get it to propagate just as well.
-
-%TODO: Add figure of scattering with bentr boundary
+With this linear system set up, let us take a look at the physical spaces in
+which we will run these simulations.
 
 \section{2d hexagonal finite lattice}
 \begin{figure}[!h]
@@ -59,6 +47,108 @@ like and get it to propagate just as well.
   connections outside the lattice).}
 \end{figure}
 
+Specifically, we will be running our following simulations on the arrangement
+of cells in Figure~\ref{fig:hexstdfinlattice}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\linewidth]{imgs/hexstdfinlattice.png}
+  \caption{Arrangement of hexagonal cells ($2N=20$, $M=40$), with red and blue
+    being different materials, and source of excitation at the green masses.}
+  \label{fig:hexstdfinlattice}
+\end{figure}
+
+\subsection{Alternating masses}
+
+In this section we will run scattering simulations on the physical lattice as
+described in Chapter \ref{perturbaltmass} with the alternating masses.
+
+Now, we can run our simulations for another frequency we want, but we know from
+our dispersion relations that most frequencies (those outside the special
+dispersion curves corresponding to the edge states) will just propagate
+throughout the lattice and so we would not get any discernible patterns of
+movement. An example can be found in Figure~\ref{fig:randscat}.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{imgs/hexstripperturbMrotatedrand.png}
+  \caption{Zoomed in look of Figure~\ref{fig:hexstripMrotated} near the bandgap.}
+\label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hexstdrandscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal finite lattice in
+  Figure~\ref{fig:hexstdfinlattice} with the alternating masses as defined in
+  Figure~\ref{fig:hexstripMrotated}.}
+\label{fig:randscat}
+\end{figure}
+
+As we are interested in being able to direct waves to our liking, it is much
+more exciting to fire a frequency which is only able to travel along the
+boundary. So let use the same system as in Figure~\ref{fig:randscat} again, but
+using $\Omega = 1.6$ instead as we can see in
+Figure~\ref{fig:hexstripMrotatedzooms1} that the dispersion curve for that edge
+mode lives in the bandgap.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{imgs/hexstripperturbMrotatedzoom.png}
+  \caption{Zoomed in look of Figure~\ref{fig:hexstripMrotated} near the bandgap.}
+  \label{fig:hexstripMrotatedzooms1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hexstdrotstraight.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal finite lattice in
+  Figure~\ref{fig:hexstdfinlattice} with the alternating masses as defined in
+  Figure~\ref{fig:hexstripMrotated}.}
+\label{fig:hexstdrotstraight}
+\end{figure}
+
+Wonderful! Finally after all our hard work we can see in
+Figure~\ref{fig:hexstdrotstraight} that the wave or energy forced into the
+system is only propagating along the straight line. This effectively means that
+we can control the direction of propagation of waves through our lattice and
+not have it diffuse or \textit{leak} out into the other parts of the lattice.
+Of course our next thought would be to see if it is possible to send the energy
+around bends and more complex boundaries, which is what we discuss in Chapter
+\ref{complexbends}.
+
+\subsection{Varying mass and stiffnesses}
+In this section we will take a look at running scattering simulations as above
+but for the physical system discussed in Chapter \ref{perturbMk}.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hexstripperturb2zoom.png}
+  \caption{Zoomed in look of Figure~\ref{fig:hexstrip2} near the bandgap.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1.2\linewidth]{imgs/hexstdMk.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal finite lattice in
+  Figure~\ref{fig:hexstdfinlattice} with the top having a greater $M$ and $k$
+  than the bottom as defined in Figure~\ref{fig:hexstrip2}.}
+\label{fig:hexstdMk}
+\end{figure}
+
 \section{2d kagome finite lattice}
 \begin{figure}[!h]
 \centering
@@ -69,5 +159,15 @@ like and get it to propagate just as well.
   conditions imposed at the boundaries (masses at boundaries have no
   connections outside the lattice).}
 \end{figure}
+
+\section{Complex bends}
+\label{complexbends}
+
+\subsection{Gentle and sharp straight bends}
+%TODO: Add figure of scattering with bent boundary
+
+\subsection{Curved bends}
+So it can travel around gentle and sharp straight bends; it is only natural to
+wonder if it can propagate as well with a curved bend.
 
 
