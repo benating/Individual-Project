@@ -163,12 +163,90 @@ but for the physical system discussed in Chapter \ref{perturbMk}.
 
 \section{Complex bends}
 \label{complexbends}
+Now that we have built up the foundation of how we can force a wave to
+propagate in a specific direction in a topologically repeating material or
+metamaterial, we want to see just how robust this phenomenon is based on the
+shape of the boundary, i.e. just how much can we bend the wave?
+
+\textit{Note:}Since we have already shown that this can be done for both the
+hexagonal and kagome lattice, in this section we will only be running our
+simulations for the hexagonal lattice to avoid duplication, as we are just
+exploring whether the shape of the boundary affects the scattering.
+Furthermore, we will specifically be using the same top and bottom cels as
+Figure~\ref{hexstdrotstraight}, which is with alternating masses as defined in
+Figure~\ref{fig:hexstripMrotated}.
 
 \subsection{Gentle and sharp straight bends}
-%TODO: Add figure of scattering with bent boundary
+So far we have seen just straight line boundaries, but can this work for bent
+boundaries too? Due to the way we set up our lattice (with the strips getting
+higher as we go from left to right), there are two kinds of bends we can make
+straight away. The 'gentle' bend where we bend the boundary upwards, and the
+'sharp' bend where we bend the boundary downwards.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/gentlebendarr.png}
+  \caption{Arrangement of cells to form a gentle bend.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/gentlebendscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal finite lattice with gentle
+  bend.}
+\label{fig:gentlebend}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/sharpbendarr.png}
+  \caption{Arrangement of cells to form a sharp bend.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/sharpbendscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal finite lattice with sharp
+  bend.}
+\label{fig:sharpbend}
+\end{figure}
+
+Amazingly, our system is able to stand up to both of these bends as we can see
+in Figure~\ref{fig:gentlebend} and Figure~\ref{fig:sharpbend}.
+
+%TODO: Continue with combination of straight bends; cross/interlace etc
 
 \subsection{Curved bends}
 So it can travel around gentle and sharp straight bends; it is only natural to
-wonder if it can propagate as well with a curved bend.
+then wonder if it can propagate as well along a curved bend.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/curvedbendarr.png}
+  \caption{Arrangement of cells to form a curved bend.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/curvedbendscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal finite lattice with curved
+  bend.}
+\label{fig:curvedbend}
+\end{figure}
 
 \subsection{Grading}
