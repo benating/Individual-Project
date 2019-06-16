@@ -42,7 +42,7 @@ which we will run these simulations.
 \caption{\label{fig:hexfinscheme} Schematic view of the finite hexagonal
   lattice formed from the joining of strips side-by-side, where the strips
   themselves are formed from two different halves as in Chapter
-  \ref{perturbed}.  Note the conditions imposed at the boundaries (masses at
+  \ref{perturbed}. Note the conditions imposed at the boundaries (masses at
   boundaries have no connections outside the lattice).}
 \end{figure}
 
@@ -160,6 +160,46 @@ but for the physical system discussed in Chapter \ref{perturbMk}.
   boundaries have no connections outside the lattice).}
 \end{figure}
 
+Running our simulation on the arrangement of cells in
+Figure~\ref{fig:kagomestdfinlattice}, we get the edge state in
+Figure~\ref{fig:kagomestd}. The only difference between this and the hexagonal
+ones is that we can see there seems to be some of the energy being
+diverted down the right edge. This is due to the way we have set up the
+boundary conditions in which we have rigid boundaries. This boundary coinciding
+with the straight line connections of $M_1$ connected to $M_2$ allows certain
+waves to be trasmitted along that boundary. Something very similar happens
+along the top boundary, which we can see in
+Figure~\ref{fig:kagomegentlebendscat}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{imgs/kagomestdarr.png}
+  \caption{Arrangement of kagome cells ($2N=20$, $M=40$), with red and blue
+    being different materials, and source of excitation at the green masses.}
+  \label{fig:kagomestdfinlattice}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{imgs/kagomeperturb2zoom.png}
+  \caption{Zoomed in look of Figure~\ref{fig:kagomeperturbed} near the bandgap.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/kagomestd.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the kagome finite lattice in
+  Figure~\ref{fig:kagomestdfinlattice} with the top material with greater $M$
+  and $k$ than the bottom material as defined in
+  Figure~\ref{fig:kagomeperturbed} with $\Omega = 1.64$.}
+\label{fig:kagomestd}
+\end{figure}
+
 \section{Complex bends}
 \label{complexbends}
 Now that we have built up the foundation of how we can force a wave to
@@ -167,13 +207,11 @@ propagate in a specific direction in a topologically repeating material or
 metamaterial, we want to see just how robust this phenomenon is based on the
 shape of the boundary, i.e. just how much can we bend the wave?
 
-\textit{Note:}Since we have already shown that this can be done for both the
-hexagonal and kagome lattice, in this section we will only be running our
-simulations for the hexagonal lattice to avoid duplication, as we are just
-exploring whether the shape of the boundary affects the scattering.
-Furthermore, we will specifically be using the same top and bottom cels as
-Figure~\ref{hexstdrotstraight}, which is with alternating masses as defined in
-Figure~\ref{fig:hexstripMrotated}.
+\textit{Note:} For the hexagonal simulations, we will specifically be using the
+same top and bottom cells as Figure~\ref{fig:hexstdrotstraight}, which is with
+alternating masses as defined in Figure~\ref{fig:hexstripMrotated}. And for the
+kagome simulations, we will specifically be using the same top and bottom cells
+as Figure~\ref{fig:kagomestd}.
 
 \subsection{Gentle and sharp straight bends}
 So far we have seen just straight line boundaries, but can this work for bent
@@ -196,8 +234,23 @@ straight away. The 'gentle' bend where we bend the boundary upwards, and the
   \caption{The plot of $|y_i|$ for each mass in each cell.}
   \label{fig:sub2}
 \end{subfigure}
-\caption{Simulation of scattering on the hexagonal finite lattice with gentle
-  bend.}
+
+\medskip
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/kagomegentlebendarr.png}
+  \caption{Arrangement of cells to form a gentle bend.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/kagomegentlebendscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:kagomegentlebendscat}
+\end{subfigure}
+\caption{Simulation of scattering hexagonal and kagome finite lattices with a
+  gentle bend.}
 \label{fig:gentlebend}
 \end{figure}
 
@@ -215,12 +268,27 @@ straight away. The 'gentle' bend where we bend the boundary upwards, and the
   \caption{The plot of $|y_i|$ for each mass in each cell.}
   \label{fig:sub2}
 \end{subfigure}
-\caption{Simulation of scattering on the hexagonal finite lattice with sharp
-  bend.}
+
+\medskip
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/kagomesharpbendarr.png}
+  \caption{Arrangement of cells to form a sharp bend.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/kagomesharpbendscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal and kagome finite lattice
+  with a sharp bend.}
 \label{fig:sharpbend}
 \end{figure}
 
-Amazingly, our system is able to stand up to both of these bends as we can see
+Amazingly, our systems are able to stand up to both of these bends as we can see
 in Figure~\ref{fig:gentlebend} and Figure~\ref{fig:sharpbend}.
 
 %TODO: Continue with combination of straight bends; cross/interlace etc
@@ -243,9 +311,24 @@ then wonder if it can propagate as well along a curved bend.
   \caption{The plot of $|y_i|$ for each mass in each cell.}
   \label{fig:sub2}
 \end{subfigure}
-\caption{Simulation of scattering on the hexagonal finite lattice with curved
-  bend.}
+
+\medskip
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/kagomecurvedbendarr.png}
+  \caption{Arrangement of cells to form a curved bend.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/kagomecurvedbendscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal and kagome finite lattice
+  with curved bend.}
 \label{fig:curvedbend}
 \end{figure}
 
-\subsection{Grading}
+%TODO: do we want \subsection{Grading}
