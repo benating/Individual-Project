@@ -31,9 +31,6 @@ dispersion relations, it is seen as gaps in the frequency axis where no line
 is present. An example is shown in Figure~\ref{fig:bandgapex}. 
 %TODO: What is a bandgap?
 
-\section{Band gap inversion}
-%TODO: Decide if want to include
-
 \section{2d bulk hexagonal perturbation}
 Due to the many symmetries of the hexagonal lattice, there are many different
 ways for us to perturb its structure and break its symmetry. These all lead to
@@ -103,7 +100,9 @@ the kagome lattice in Chapter \ref{kagomeperturb}.
   semi-infinite lattice made from an infinite number of strips connected
   side-by-side. Each strip is composed of 2N cells, with the top half of cells
   above the boundary (green) possessing a set of properties and the bottom half
-  possessing a separate set of properties.}
+  possessing a separate set of properties. Note the the boundary conditions at
+  the top and bottom, i.e. the cells at the top and bottom edges have no
+  connections outside the lattice.}
 \end{figure}
 
 Now we assemble $2N$ hexagonal cells together into a strip and form a
@@ -124,13 +123,17 @@ connected to $M_6$ displaced by some phase shift anymore, but is connected to
 $M_6$ in the cell below. Specifically we get, 
 %TODO: Add equations for 2,5 and 3,6
 
-Also we impose the periodic boundary condition at the top and bottom edges by
-coupling the top and bottom cells together across the edge. This essentially
-gives us an infinite lattice, which allows us to use all the theorems we have
-been using before, and if we take $N$ to be large enough, the exponential decay
-of the wavefunctions across the strip is great enough to ensure our solution
-approximates the real semi-infinite lattice well enough. Specifically, we
-impose
+Also, we explicitly choose the boundary condition where the top and bottom
+cells have no connections outside the lattice. This is similar to having our
+top and bottom edges connected to a \textit{rigid wall} as our waves are unable
+to leave the lattice from those two edges. This is important to note a waves
+travelling towards those two edges will be reflected back into the lattice
+which we can see in Figure~\ref{fig:reflect}.
+%TODO: Generate scattering with reflection along edge
+
+\textit{Note:} Another sensible periodic boundary condition which we could have
+imposed at the top and bottom edges is by coupling the top and bottom cells
+together across the edge. Specifically, we could impose
 %TODO: Fix blabber on periodic boundary condition
 
 \begin{align}
@@ -139,14 +142,28 @@ impose
   \matr{A}_{6(2N-1)+2,5}&=-\tilde{k}e^{i\Delta_1} 
 \end{align}
 
-With those, we can finally form the eigen-problem
+This essentially gives us an infinite lattice going
+from top to bottom, with top and bottom materials alternating. Therefore
+essentially, the significant difference which we will see between the two
+boundary conditions is that one models the top and bottom edge as edges between
+our materials and a rigid wall, and the other models the top and bottom edge as
+edges between our two materials. However, we will see later on that this will
+not matter too much for our scattering simulations as we will be exciting waves
+of frequencies in our bandgaps. So if we take $N$ to be large enough, the
+exponential decay of the wavefunctions across the strip is great enough to
+ensure our wave does not propagate to the top and bottom edges anyways.
+
+With that, we can finally form the eigen-problem
 
 \begin{align}
   \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)-\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
 \label{eq:hexstripeig}
 \end{align}
 
-where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
+where $\matr{A}$ is a $(2N \times 6) \times (2N \times 6)$ matrix with
+$\matr{A}$ as defined in \eqref{eq:hexeig} repeated along the diagonal and with
+the additional coupling terms added,
+$\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
 $\matr{M}_{t}=\diag\left(\left\{M_{i,t}\right\}\right)$,
 $\matr{M}_{b}=\diag\left(\left\{M_{i,b}\right\}\right)$,
 \begin{align}
@@ -198,7 +215,7 @@ reflect it about the vertical at $\Gamma$).
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/hexstrip.png}
 \caption{\label{fig:hexstripdisper} Dispersion relation of the semi-infinite
-  hexagonal lattice with $N=20$ (40 cells in total) with
+  hexagonal lattice with $2N=40$ (40 cells in total) with
   $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$.}
 \end{figure}
 
@@ -353,22 +370,24 @@ together into a strip and form a semi-infinite lattice with these strips
 connected left-to-right as shown in Figure~\ref{fig:kagomestripmodel}.
 
 Using the same conventions as the hexagonal strip case and similarly imposing
-periodic boundary conditions at the top and bottom edge, i.e.
+rigid boundary conditions at the top and bottom edge, we can form the
+eigen-problem
 
-\begin{align}
-  \matr{A}_{1,3(2N-1)+2}&=\matr{A}_{3(2N-1)+2,1}=-\tilde{k} \\
-  \matr{A}_{3,3(2N-1)+2}&=-\tilde{k}e^{-i\Delta_1} \\
-  \matr{A}_{3(2N-1)+2,3}&=-\tilde{k}e^{i\Delta_1} 
-\end{align} 
-
-we form the eigen-problem 
+%\begin{align}
+%  \matr{A}_{1,3(2N-1)+2}&=\matr{A}_{3(2N-1)+2,1}=-\tilde{k} \\
+%  \matr{A}_{3,3(2N-1)+2}&=-\tilde{k}e^{-i\Delta_1} \\
+%  \matr{A}_{3(2N-1)+2,3}&=-\tilde{k}e^{i\Delta_1} 
+%\end{align} 
 
 \begin{align}
   \left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)-\matr{\Omega}\matr{M}\right]\vec{y}=\vec{0}
 \label{eq:kagomestripeig}
 \end{align}
 
-where $\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
+where $\matr{A}$ is a $(2N \times 6) \times (2N \times 6)$ matrix with
+$\matr{A}$ as defined in \eqref{eq:kagomeeig} repeated along the diagonal and
+with the additional coupling terms added,
+$\matr{\Omega}=\diag\left(\left\{\Omega_i^2\right\}\right)$,
 $\matr{M}_{t}=\diag\left(\left\{M_{i,t}\right\}\right)$,
 $\matr{M}_{b}=\diag\left(\left\{M_{i,b}\right\}\right)$,
 \begin{align}
@@ -396,16 +415,6 @@ y_3^{(2N)}\\
 \end{array}\right],
 \end{align}
 
-\begin{align}
-  \matr{A}\left(\kappa_{x},\kappa_{y}\right)=\left[
-\begin{array}{ccc}
-2k+2\tilde{k} & -k-\tilde{k}e^{-i\Delta_3} & -k-\tilde{k}e^{i\Delta_1} \\
--k-\tilde{k}e^{i\Delta_3} & 2k+2\tilde{k} & -k-\tilde{k}e^{i\Delta_2} \\
--k-\tilde{k}e^{-i\Delta_1} & -k-\tilde{k}e^{-i\Delta_2} & 2k+2\tilde{k} 
-\end{array}\right]
-\end{align}
-%TODO: Fix A
-
 Solving this with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$ over the irreducible
 Brilloun zone, which is again the same as the hexagonal system, gives us the
 dispersion relation in Figure~\ref{fig:kagomestripdisper}.
@@ -414,7 +423,7 @@ dispersion relation in Figure~\ref{fig:kagomestripdisper}.
 \centering
 \includegraphics[width=0.8\textwidth]{imgs/kagomestrip.png}
 \caption{\label{fig:kagomestripdisper} Dispersion relation of the semi-infinite
-  kagome lattice with $N=40$ (80 cells in total) with
+  kagome lattice with $2N=40$ (40 cells in total) with
   $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$.}
 \end{figure}
 

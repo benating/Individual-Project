@@ -32,15 +32,62 @@ throughout the lattice.
 
 \item Testing how small each layer of material can be to get a \textit{good
 enough} edge state. So far in our discussions of the strips of cells, we have
-been using strips with a large number of cells (e.g.$2N=40$) because we know
+been using strips with a large number of cells (e.g. $2N=40$) because we know
 that the edge states decay exponentially outwards from the boundary, but this
 may not be possible or cost effective when developing real products. Therefore,
 it is important to study how the number of cells translates to the amount of
 energy lost and how this might lead to unwanted energy elsewhere in the system
 or interference with our edge state along the boundary. An example can be seen
 in Figure~\ref{fig:smallvsbig}.
-%TODO: Add simulation, one with thin layers, one with thick
 \end{itemize}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{imgs/svbthickarr.png}
+  \caption{Arrangement of cells with $2N=10$.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{imgs/svbthickscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+
+\medskip
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{imgs/svbthinarr.png}
+  \caption{Arrangement of cells with $2N=4$.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{imgs/svbthinscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+
+\medskip
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{imgs/svbthinnerarr.png}
+  \caption{Arrangement of cells with $2N=2$.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{imgs/svbthinnerscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Scattering simulation to show the differences in amplitude and
+  dissipation of energy for hexagonal boundaries of different thicknesses using
+  the cells as defined in Figure~\ref{fig:hexstripMrotated}.}
+\label{fig:smallvsbig}
+\end{figure}
 
 In terms of improving the workflow for the generation of these results for
 other geometries and topologies, we could implement the following:
