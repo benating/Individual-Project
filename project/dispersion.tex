@@ -1,8 +1,8 @@
 \chapter{Dispersion relation}
 \label{disperrel}
-A dispersion relation relates the wavenumber of a wave to its frequency. We
-will see that this relation is of utmost importance when discussing periodic
-lattices as only waves of certain frequencies are transmitted by the lattice.
+As mentioned in Chapter \ref{disperbg}, the dispersion relation succinctly
+characterises a given periodic lattice. As such, we will start with discussing
+how we can find the dispersion relations for simple lattices.
 
 \section{1d lattice}
 \begin{figure}[!h]
@@ -26,7 +26,6 @@ case, we have masses of equal mass, $m$ spread out evenly across one dimension.
 All neighbouring masses are connected by an elastic force which scales
 proportionally with distance, i.e. $F = kx$ for some $k$.
 
-% TODO: Add discussion about transverse waves into appendix?
 \textit{Note}: As mentioned before, we will be thinking of this system as a
 mass-spring system. Notice however that it does not matter whether we are
 considering longitudinal or transverse waves, as the equations governing their
@@ -274,9 +273,8 @@ the 2d square lattice in Figure~\ref{fig:ibzonesq}.
 
 With these concepts, we can fully solve the dispersion relation over our
 infinite lattice space by just finding the solutions within the irreducible
-Brillouin zone. Even more, given that standing waves are only present on the
-boundary of the irreducible Brillouin zone, we only need to solve the
-dispersion relation over the boundary.
+Brillouin zone. Even more, we actually only need to solve the dispersion
+relation over the boundary because
 %TODO: Is it because of standing waves??
 
 Therefore for this case of an infinite 2d square lattice, we first solve the
@@ -289,16 +287,13 @@ $\matr{\Omega}$ and $\vec{y}$ respectively. Then, we get the dispersion relation
 by plotting out $\Omega_i$ against $(\kappa_x,\kappa_y$ or the position on the
 Brillouin zone.
 
-\textit{Note}: The significance of the
-eigenvectors or $y_i$ will be discussed
-more in Chapter \ref{scattering} where we
-plot the values of $y_i$ to visualise the
-propagation of waves through a finite
-lattice.
+\textit{Note}: The significance of the eigenvectors or $y_i$ will be discussed
+more in Chapter \ref{scattering} where we plot the values of $y_i$ to visualise
+the propagation of waves through a finite lattice.
 %TODO: Do we need to use the eigenvectors?
 
 We first need to find the values of $\kappa_{x}$ and $\kappa_{y}$ at $\Gamma$,
-$X$ and $M$ as shown in Figure~\ref{fig:ibzonesq}.
+$K$ and $M$ as shown in Figure~\ref{fig:ibzonesq}.
 %TODO: What should the limits of kappa_x and kappa_y be?
 
 With this, and assuming that all masses $M_i=1$ for now (we will explore how
