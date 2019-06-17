@@ -78,8 +78,8 @@ Since we can write this differential equation for any of our masses in our
 infinite lattice, we would need to solve an infinite number of coupled second
 order differential equations. However, the trick we use is that since we have
 that $M_{n-1}$ and $M_{n+1}$ are equidistant from $M_{n}$ at equilibrium (i.e.
-the lattice is periodic), we can make use of Bloch's theorem\cite{bloch} to
-describe the phase shift in the wave solution as
+the lattice is periodic), we can make use of Bloch's theorem (discussed in
+Chapter \ref{blochbg} to describe the phase shift in the wave solution as
 
 \begin{align}
   y_{n-1}=e^{-i\kappa}y_n,\ \ y_{n+1}=e^{i\kappa}y_n
@@ -109,7 +109,7 @@ The first interesting thing to notice about this dispersion relation is that
 the curve seems to be periodically repeating. More precisely, if we look at the
 curve between $-\pi$ and $\pi$, we can see that translating this portion of the
 graph left or right by $2\pi$ will give us the rest of the dispersion relation.
-This range of wave numbers is known as the first Brillouin zone, which we will
+This range of wave numbers is known as the first Brillouin zone, which we
 discuss more in the context of 2d lattices in Chapter \ref{brizones}.
 
 \section{2d square lattice}
@@ -168,6 +168,7 @@ vectors $\kappa_y$ and $\kappa_x$, i.e.
 \begin{align}
   y_i^{n+N,m+M}=e^{i\left(N\kappa_y+M\kappa_x\right)}y_i^{n,m}\ \ \ \ 
       \forall N,M\in\mathbb{Z}
+\label{eq:blochsq}
 \end{align}
 
 With this, instead of an infinite number of equations, we have a set of four
@@ -222,26 +223,9 @@ correspond to the displacement of the masses, $y_i$. However, the next question
 arises: How should we vary $\kappa$ so that we get a good enough picture of the
 full dispersion relation of our 2d lattice?
 
-To answer this question, we first have to discuss the theory of Brillouin zones.
-
-\subsection{Brillouin zones}
-\label{brizones}
-%TODO: Molding the flow of light might be useful
-The concept of Brillouin zones was first defined by Leon Brillouin in his book
-on wave propagation in periodic structures.\cite{brillouin} The Brillouin zone
-is a particular choice of the unit cell of the reciprocal lattice, where a
-reciprocal lattice represents the Fourier transform of another lattice. In our
-case, our model lattice is a periodic spatial function in real space, and so
-its reciprocal lattice exists as a function of frequency in reciprocal space.
-
-As we are able to tessellate our physical lattice with a periodically repeating
-unit cell, so there exists a unit reciprocal cell which can cover the
-reciprocal space without overlap. A Brillouin zone is a particular choice of
-this reciprocal cell and is constructed as the set of points enclosed by the
-Bragg planes. The Bragg planes exist in reciprocal space and are the planes
-perpendicular to a straight line from the origin to each lattice point. These
-concepts are described visually for a 2d square real lattice in
-Figure~\ref{fig:bzonesq}.
+To answer this question, we make use of the theory of Brillouin zones as
+discussed in Chapter \ref{brizones} to form the first Brillouin zone for our
+infinite square lattice in Figure~\ref{fig:bzonesq}.
 
 \begin{figure}[!h]
 \centering
@@ -252,7 +236,7 @@ Figure~\ref{fig:bzonesq}.
     origin to the other lattice points (red), their perpendicular bisectors are
     the Bragg planes (blue), and the innermost region enclosed by the Bragg
     planes is the first Brilloin zone (yellow). Image and caption adapted from
-    source.\cite{MITnp}}
+    source.\cite{moldinglight}}
 \end{figure}
 %TODO: Explain image equations?
 
@@ -438,7 +422,7 @@ dispersion relation of this 2d hexagonal lattice.
     origin to the other lattice points (red), their perpendicular bisectors are
     the Bragg planes (blue), and the innermost region enclosed by the Bragg
     planes is the first Brilloin zone (yellow). Image and caption adapted from
-    source.\cite{MITnp}}
+    source.\cite{moldinglight}}
 \end{figure}
 %TODO: Explain image equations?
 
