@@ -130,11 +130,14 @@ scattering\cite{bragg}.
 Given the timeline of this project, the limited Physics background I have, as
 well as to make the results accessible to a wider audience, we have decided to
 go for a simplistic masses-connected-by-springs model, as seen in
-Figure~\ref{fig:ourmodel}, as the core object of study in our project. Not only
-does this reduce the complexity as we only need to deal with ordinary
-differential equations and not partial differential equations, it also reduces
-the complexity in the scattering simulations as we now have to solve a discrete
-system instead of a continuous one. With this \textit{toy} system, we will be
+Figure~\ref{fig:ourmodel}, as the core object of study in our project. The
+lattice will be formed of repeating cells (e.g. Figure~\ref{fig:sqscheme}) and
+it is the periodicity in the lattice which will give rise to its special
+properties. Not only does this reduce the complexity as we only need to deal
+with ordinary differential equations and not partial differential equations, it
+also reduces the complexity in the scattering simulations as we now have to
+solve a discrete system instead of a continuous one. With this \textit{toy}
+system which form the basic building blocks of solid state physics, we will be
 able to more quickly lay the foundations required to carry out more interesting
 experiments, from which results can be transferred to other models.
 
@@ -160,11 +163,12 @@ wave travelling through a periodic potential can be expressed as the product of
 a periodic function and a plane wave,\cite{kittel} i.e.
 
 \begin{align}
-  \psi_{\vec{k}}(\vec{r})=f_{\vec{k}}(\vec{r})e^{i\vec{k}\cdot\vec{r}}
+  \psi_{\vec{\kappa}}(\vec{r})=f_{\vec{\kappa}}(\vec{r})e^{i\vec{\kappa}\cdot\vec{r}}
+\label{eq:blochwave}
 \end{align}
 
-where $f_{\vec{k}}(\vec{r})$ has the period of the lattice with
-$f_{\vec{k}}(\vec{r})=f_{\vec{k}}(\vec{r}+\vec{R})$, with $\vec{R}$ being a
+where $f_{\vec{\kappa}}(\vec{r})$ has the period of the lattice with
+$f_{\vec{\kappa}}(\vec{r})=f_{\vec{\kappa}}(\vec{r}+\vec{R})$, with $\vec{R}$ being a
 translation vector of the lattice.
 
 The proof of this theorem can be found here.\cite{kittel} But we will just
@@ -180,6 +184,7 @@ will see later how this helps to reduce our infinite system of equations down
 to a finite number, such as in \eqref{eq:HLN2L} and \eqref{eq:blochsq}.
 
 \section{Reciprocal lattice}
+\label{reclatbg}
 A reciprocal lattice represents the Fourier transform of another lattice. In
 our case, our model lattice is a periodic spatial function in real space, and
 so its reciprocal lattice exists as a function of frequency in reciprocal
@@ -246,9 +251,53 @@ The concept of Brillouin zones was first defined by Leon Brillouin in his book
 on wave propagation in periodic structures.\cite{brillouin} As we are able to
 tessellate our physical lattice with a periodically repeating unit cell, so
 there exists a unit reciprocal cell which can cover the reciprocal space
-without overlap. A Brillouin zone is a particular choice of this reciprocal
-cell and is constructed as the set of points enclosed by the Bragg planes. The
-Bragg planes exist in reciprocal space and are the planes perpendicular to a
-straight line from the origin to each lattice point. These concepts are
-described visually for a 2d square real lattice in Figure~\ref{fig:bzonesq}.
-%TODO: Complete
+without overlap. We will now motivate the selection of the first Brillouin zone
+as a \textit{good} unit reciprocal cell based on the the discussions in
+here.\cite{moldinglight}
+
+To see how we might make a good choice for a unit cell for the reciprocal
+space, notice that for the Bloch states (as defined in Chapter \ref{blochbg}),
+different values of $\vec{\kappa}$ do not necessarily lead to different modes.
+To be more precise, the modes with wave vector $\vec{\kappa}$ and
+$\vec{\kappa}+2\pi N$ are identical, which means that $\vec{\kappa}$
+essentially functions as the phase relationship between the displacement of
+masses in our lattice. Now notice also that from \eqref{eq:blochwave} and the
+fact that our lattice is periodic, we have that if $\vec{G}$ is a reciprocal
+lattice vector (as defined in Chapter \ref{reclatbg}), then
+$\vec{\kappa}+\vec{G}$ causes the phase difference between masses to be
+incremented by $\vec{G}\cdot\vec{R}$ which we know is $2\pi N$ and so is no
+difference at all!
+
+This shows us that there is a lot of redundancy in $\vec{\kappa}$ and we do not
+actually need to explore the whole of $\kappa$-space but it is enough for us to
+restrict ourselves to a finite \textit{zone} in the reciprocal space from which
+we \textit{cannot} get from one part of the lattice to area to another by
+adding $\vec{G}$. This is visually demonstrated in Figure~\ref{fig:kappaspace}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/kappaspace.png}
+\caption{\label{fig:kappaspace} Characterisation of the Brillouin zone. The
+  dotted line refers to the perpendicular bisector of the line joining two
+  reciprocal lattice points (blue). Notice that if we choose the left point A
+  as the origin, any lattice vector (such as $\vec{\kappa'}$) that reaches to
+  an arbitrary point on the other side (red) can be expressed as the sum of a
+  vector on the same side (such as $\vec{kappa}$) plus a reciprocal lattice
+  vector $\vec{G}$. Image and caption adapted from source.\cite{moldinglight}.}
+\end{figure}
+
+There are many such zones, but we choose to focus on the region which is
+closest to the origin, where $\vec{\kappa}=0$. And that zone is what we call
+the first Brillouin zone. 
+
+That is why the other way to define a Brillouin zone is that it is a particular
+choice of this reciprocal cell and is constructed as the set of points enclosed
+by the Bragg planes. The Bragg planes exist in reciprocal space and are the
+planes perpendicular to a straight line from the origin to each lattice point.
+The first Brillouin zone is then defined as the set of points formed by the
+Bragg planes closest to the origin. These concepts are described visually for a
+2d square real lattice in Figure~\ref{fig:bzonesq}.
+
+The idea of Brillouin zones is brilliant in that now we know we only need to
+solve for the dispersion relation for $\vec{\kappa}$ in the first Brillouin
+zone to know the dispersion relation across the entire lattice.
