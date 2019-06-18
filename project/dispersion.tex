@@ -219,9 +219,11 @@ $\vec{y}=\left[\left\{y_i\right\}\right]^T$ and
 Therefore, we can solve for the eigenvalues and eigenvectors of this equation.
 The eigenvalues of this equation correspond to the frequency of waves,
 $\Omega$, which are allowed through our lattice while the eigenvectors
-correspond to the displacement of the masses, $y_i$. However, the next question
-arises: How should we vary $\kappa$ so that we get a good enough picture of the
-full dispersion relation of our 2d lattice?
+correspond to the displacement of the masses, $y_i$. It is also interesting to
+note that because $\matr{A}$ is Hermitian, we are guaranteed by the spectral
+theorem for Hermitian matrices that all the eigenvalues are real. However, the
+next question arises: How should we vary $\kappa$ so that we get a good enough
+picture of the full dispersion relation of our 2d lattice?
 
 To answer this question, we make use of the theory of Brillouin zones as
 discussed in Chapter \ref{brizones} to form the first Brillouin zone for our
@@ -238,7 +240,6 @@ infinite square lattice in Figure~\ref{fig:bzonesq}.
     planes is the first Brilloin zone (yellow). Image and caption adapted from
     source.\cite{moldinglight}}
 \end{figure}
-%TODO: Explain image equations?
 
 Now that we have a uniquely defined unit cell in the reciprocal lattice, we
 only have to consider solutions which occur in this region, as all distinct
@@ -271,10 +272,11 @@ $\matr{\Omega}$ and $\vec{y}$ respectively. Then, we get the dispersion relation
 by plotting out $\Omega_i$ against $(\kappa_x,\kappa_y$ or the position on the
 Brillouin zone.
 
-\textit{Note}: The significance of the eigenvectors or $y_i$ will be discussed
-more in Chapter \ref{scattering} where we plot the values of $y_i$ to visualise
-the propagation of waves through a finite lattice.
-%TODO: Do we need to use the eigenvectors?
+\textit{Note}: For Chapter \ref{disperrel} and \ref{perturbed}, we will be
+focusing on analysing the eigenvalues to find the frequencies allowed to
+propagate in our system. Then we will make use of the eigenvectors $y_i$ in
+Chapter \ref{scattering} where we plot the values of $y_i$ to visualise the
+propagation of waves through a finite lattice.
 
 We first need to find the values of $\kappa_{x}$ and $\kappa_{y}$ at $\Gamma$,
 $K$ and $M$ as shown in Figure~\ref{fig:ibzonesq}.
@@ -302,7 +304,6 @@ elementary cells.
   masses in cell $(n,m)$ are shown to avoid cluttering the figure, although
   they exist within and between each cell.}
 \end{figure}
-%TODO: Check if this figure actually corresponds to our hex model. Source says it's for a triangular model
 
 As described in Figure~\ref{fig:hexscheme}, consider an infinite 2d plane made
 of hexagonal unit cells of six masses $M_i$ for $i\in\left[1,6\right]$, which
@@ -409,8 +410,9 @@ $\vec{y}=\left[\left\{y_i\right\}\right]^T$ and now
 \end{array}\right]
 \end{align}
 
-We will again use the theory of Brillouin zones as described in Chapter
-\ref{brizones} to simplify the work we need to do in order to understand the
+Again, $\matr{A}$ is Hermitian, guaranteeing that we get real eigenvalues,
+$\Omega$. We will again use the theory of Brillouin zones as described in
+Chapter \ref{brizones} to simplify the work we need to do in order to find the
 dispersion relation of this 2d hexagonal lattice.
 
 \begin{figure}[!h]
@@ -424,7 +426,7 @@ dispersion relation of this 2d hexagonal lattice.
     planes is the first Brilloin zone (yellow). Image and caption adapted from
     source.\cite{moldinglight}}
 \end{figure}
-%TODO: Explain image equations?
+%TODO: Create own hex bzone image?
 
 \begin{figure}[!h]
 \centering
@@ -545,11 +547,10 @@ $\vec{y}=\left[\left\{y_i\right\}\right]^T$ and now
 \end{array}\right]
 \end{align}
 
-%TODO: Form equations up till eigenproblem
-
-Again given the similarities between the kagome and hexagonal lattice, the
-irreducible Brillouin zones happen to be identical as seen in
-Figure~\ref{fig:ibzonekagome}.
+Again we have that $\matr{A}$ is Hermitian and given the similarities between
+the kagome and hexagonal lattice, the irreducible Brillouin zones happen to be
+identical as seen in Figure~\ref{fig:ibzonekagome}.
+%TODO: Show kagome bzone is same as hex
 
 \begin{figure}[!h]
 \centering
@@ -572,5 +573,4 @@ What is really interesting about this dispersion relation is that there is one
 eigenvalue solution which is constant over the boundary of the irreducible
 Brillouin zone; but not only that, it is actually constant over the entire
 space!
-%TODO: Explain why there is a flat line in kagome dispersion relation
-%TODO: Explain significance of dispersion relation
+%TODO: Explain why there is a flat line in kagome dispersion relation; look at eigenvector to see

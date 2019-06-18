@@ -28,9 +28,30 @@ note that the following derivation works just as well for systems of any shape
 as long as we have formed the eigen-problem as before, as we will reuse the
 variables in the eigen-problem here.
  
-The key idea in this is that we can pick and choose the frequency, $\Omega$,
-and so by just
-%TODO: Finish derivation of linear system
+We will show it for the hexagonal lattice. Looking at \eqref{eq:hexstripeig},
+we first need to extend the system to include our whole finite lattice which is
+formed by joining strips side-by-side. So now $\matr{A}$ is a $(2N \times M
+\times 6) \times (2N \times M \times 6)$ matrix with $\matr{A}$ from
+\eqref{eq:hexstripeig} repeated $M$ times along the diagonal, with the complex
+exponential terms removed and additional coupling terms between masses in
+adjacent strips added in. We also extend $\matr{M}$ by repeating $\matr{M}$ $M$
+times along the diagonal.
+
+The key idea now is just to notice that when we can pick and choose the
+frequency, $\Omega$, the LHS
+$\left[\matr{A}\left(\kappa_{x},\kappa_{y}\right)-\matr{\Omega}\matr{M}\right]=\matr{B}$
+just falls out as a known-valued matrix. Then for the RHS, instead of
+$\vec{0}$, we will have a vector $\vec{F}$ containing our forcing terms at the
+masses which will act as our source of excitation, e.g. if we are inducing a
+positive wave at the mass $M_i^{n,m}$, then we will have $\vec{F}$ is a vector
+of $0$ except at the position which correpsonds to mass $M_i^{n,m}$ we will
+have a $1$. Then we see
+
+\begin{align}
+  \matr{B}\vec{y}=\vec{F}
+\end{align}
+
+which is just a linear system we can solve for $\vec{y}$!
 
 With this linear system set up, let us take a look at the physical spaces in
 which we will run these simulations.
@@ -46,8 +67,14 @@ which we will run these simulations.
   boundaries have no connections outside the lattice).}
 \end{figure}
 
-Specifically, we will be running our following simulations on the arrangement
-of cells in Figure~\ref{fig:hexstdfinlattice}.
+Figure~\ref{fig:hexfinscheme} shows a schematic view of the finite hexagonal
+lattice on which we are simulating our scattering. Specifically, we will be
+running our following simulations on the arrangement of cells in
+Figure~\ref{fig:hexstdfinlattice}. We will be exciting our lattice at the
+leftmost edge of the boundary. More specifically, we will have a positive
+excitation just above the boundary (at $M_4$), and a negative excitation just
+below the boundary (at $M_5$), i.e. $\vec{F}$ is $0$ everywhere except
+$\vec{F}_{6(\frac{N}{2}-1)+4}=1$ and $\vec{F}_{6(\frac{N}{2})+5}=-1$.
 
 \begin{figure}
   \centering
@@ -160,16 +187,25 @@ but for the physical system discussed in Chapter \ref{perturbMk}.
   boundaries have no connections outside the lattice).}
 \end{figure}
 
+Figure~\ref{fig:kagomefinscheme} shows a schematic view of the finite kagome
+lattice on which we will be running our scattering simulations. We will be
+exciting our lattice at the leftmost edge of the boundary. More specifically,
+we will have a positive excitation just above the boundary (at $M_3$), and a
+negative excitation just below the boundary (at $M_3$), i.e. $\vec{F}$ is $0$
+everywhere except $\vec{F}_{3(\frac{N}{2}-1)+3}=1$ and
+$\vec{F}_{3(\frac{N}{2})+3}=-1$.
+
+
 Running our simulation on the arrangement of cells in
 Figure~\ref{fig:kagomestdfinlattice}, we get the edge state in
 Figure~\ref{fig:kagomestd}. The only difference between this and the hexagonal
-ones is that we can see there seems to be some of the energy being
-diverted down the right edge. This is due to the way we have set up the
-boundary conditions in which we have rigid boundaries. This boundary coinciding
-with the straight line connections of $M_1$ connected to $M_2$ allows certain
-waves to be trasmitted along that boundary. Something very similar happens
-along the top boundary where there is a straight line connection between $M_1$
-and $M_3$, which we can see in Figure~\ref{fig:kagomegentlebendscat}.
+ones is that we can see there seems to be some of the energy being diverted
+down the right edge. This is due to the way we have set up the boundary
+conditions in which we have rigid boundaries. This boundary coinciding with the
+straight line connections of $M_1$ connected to $M_2$ allows certain waves to
+be trasmitted along that boundary. Something very similar happens along the top
+boundary where there is a straight line connection between $M_1$ and $M_3$,
+which we can see in Figure~\ref{fig:kagomegentlebendscat}.
 
 \begin{figure}
   \centering

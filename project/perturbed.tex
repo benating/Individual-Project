@@ -120,8 +120,7 @@ size of our matrix is now $(2N \times 6) \times (2N \times 6)$ instead of $6
 \times 6$). The only difference and extra care we have to take is to insert the
 right coupling terms between masses in different cells, e.g. $M_3$ is not
 connected to $M_6$ displaced by some phase shift anymore, but is connected to
-$M_6$ in the cell below. Specifically we get, 
-%TODO: Add equations for 2,5 and 3,6
+$M_6$ in the cell below. 
 
 Also, we explicitly choose the boundary condition where the top and bottom
 cells have no connections outside the lattice. This is similar to having our
@@ -232,21 +231,20 @@ the graph from $K$ to $\Gamma$ and reflect about $\Gamma$), where there is a
 bandgap present. This is all fine and good but we can do something even better.
 
 In this system, the two layers of materials are the same which means that
-essentially
-%TODO: What is the significance of two different materials?
-
-So with that in mind, let us change the bottom layer into a different
-configuration. The easiest way of perturbing it so that we still get the exact
-same dispersion relation in the bulk case is to rotate the cell by
-$\frac{2\pi}{6}$. This is because locally (at the cellular level), nothing has
-changed and if we form a bulk system from the rotated cell we still get the
-same bulk system but rotated, but this does not affect the frequencies of waves
-allowed to propagate. So even if we stack the two different types of cells on
-each other, we would expect the same bandgap to be present, since locally each
-cell exhibits that property. However if we now consider the global symmetry
-when stacking the two different materials on top of each other, we can see that
-we have broken some sort of translational symmetry and so would expect
-something different in the dispersion relation.
+essentially it behaves just like the bulk hexagon case. It is as if we just
+took a finite chunk of the infinite bulk lattice. So with that in mind, let us
+change the bottom layer into a different configuration. The easiest way of
+perturbing it so that we still get the exact same dispersion relation in the
+bulk case is to rotate the cell by $\frac{2\pi}{6}$. This is because locally
+(at the cellular level), nothing has changed and if we form a bulk system from
+the rotated cell we still get the same bulk system but rotated, but this does
+not affect the frequencies of waves allowed to propagate. So even if we stack
+the two different types of cells on each other, we would expect the same
+bandgap to be present, since locally each cell exhibits that property. However
+if we now consider the global symmetry when stacking the two different
+materials on top of each other, we can see that we have broken some sort of
+translational symmetry and so would expect something different in the
+dispersion relation.
 
 \begin{figure}[!h]
 \centering
