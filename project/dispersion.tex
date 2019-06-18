@@ -209,10 +209,10 @@ $\vec{y}=\left[\left\{y_i\right\}\right]^T$ and
 \begin{align}
   \matr{A}\left(\kappa_{x},\kappa_{y}\right)=\left[
 \begin{array}{cccc}
-2k+\tilde{k} & -k-\tilde{k}e^{-i\kappa_{y}} & 0 & -k-\tilde{k}e^{i\kappa_{x}}\\
--k-\tilde{k}e^{i\kappa_{y}} & 2k+\tilde{\tilde{k}} & -k-\tilde{k}e^{i\kappa_{x}} & 0\\
-0 & -k-\tilde{k}e^{-i\kappa_{x}} & 2k+\tilde{\tilde{k}} & -k-\tilde{k}e^{i\kappa_{y}}\\
--k-\tilde{k}e^{-i\kappa_{x}} & 0 & -k-\tilde{k}e^{-i\kappa_{y}} & 2k+\tilde{\tilde{k}}
+2k+2\tilde{k} & -k-\tilde{k}e^{-i\kappa_{y}} & 0 & -k-\tilde{k}e^{i\kappa_{x}}\\
+-k-\tilde{k}e^{i\kappa_{y}} & 2k+2\tilde{k} & -k-\tilde{k}e^{i\kappa_{x}} & 0\\
+0 & -k-\tilde{k}e^{-i\kappa_{x}} & 2k+2\tilde{k} & -k-\tilde{k}e^{i\kappa_{y}}\\
+-k-\tilde{k}e^{-i\kappa_{x}} & 0 & -k-\tilde{k}e^{-i\kappa_{y}} & 2k+2\tilde{k}
 \end{array}\right]
 \end{align}
 
@@ -245,9 +245,20 @@ Now that we have a uniquely defined unit cell in the reciprocal lattice, we
 only have to consider solutions which occur in this region, as all distinct
 Bloch waves occur within the first Brillouin zone. To simplify it even further,
 there is a related concept called the irreducible Brillouin zone, which is the
-first Brillouin zone reduced by the all of its symmetries. This can be seen for
-the 2d square lattice in Figure~\ref{fig:ibzonesq}.
-%TODO: Cite theorem of proof that ^ is true
+first Brillouin zone reduced by the all of its symmetries. We first plot the
+isofrequency contours of all four of the eigenvalues across the whole of the
+first Brillouin zone in Figure~\ref{fig:sqisofreq}. It is clear to see that
+there exists an eightfold symmetry and we can actually focus our attention on
+the region indicated in Figure~\ref{fig:ibzonesq}, which is known as the
+irreducible Brillouin zone..
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/sqisofreq.png}
+\caption{\label{fig:sqisofreq} The isofrequency contours of the four
+  eigenvalues across the first Brillouin zone of our square lattice with
+  $M_i=k=\tilde{k}=1$.}
+\end{figure}
 
 \begin{figure}[!h]
 \centering
@@ -258,9 +269,10 @@ the 2d square lattice in Figure~\ref{fig:ibzonesq}.
 
 With these concepts, we can fully solve the dispersion relation over our
 infinite lattice space by just finding the solutions within the irreducible
-Brillouin zone. Even more, we actually only need to solve the dispersion
-relation over the boundary because
-%TODO: Is it because of standing waves??
+Brillouin zone. To simplify our analysis, we will just be solving the
+dispersion relation over the boundary of the irreducible Brillouin zone, i.e.
+we are taking slices of our dispersion relation over $\kappa$-space, as we can
+see it cuts through all the isofrequency contours we have.
 
 Therefore for this case of an infinite 2d square lattice, we first solve the
 eigen-problem we have in \eqref{eq:sqeig} over the boundary of the irreducible
@@ -269,7 +281,7 @@ varying the values of $\kappa_{x}$ and $\kappa_{y}$ which correspond to the
 locus of points on the boundary of the irreducible Brillouin zone, and then
 solve the eigen-problem for the eigenvalues and eigenvectors, which represent
 $\matr{\Omega}$ and $\vec{y}$ respectively. Then, we get the dispersion relation
-by plotting out $\Omega_i$ against $(\kappa_x,\kappa_y$ or the position on the
+by plotting out $\Omega_i$ against $(\kappa_x,\kappa_y)$ or the position on the
 Brillouin zone.
 
 \textit{Note}: For Chapter \ref{disperrel} and \ref{perturbed}, we will be
@@ -279,14 +291,22 @@ Chapter \ref{scattering} where we plot the values of $y_i$ to visualise the
 propagation of waves through a finite lattice.
 
 We first need to find the values of $\kappa_{x}$ and $\kappa_{y}$ at $\Gamma$,
-$K$ and $M$ as shown in Figure~\ref{fig:ibzonesq}.
-%TODO: What should the limits of kappa_x and kappa_y be?
+$K$ and $M$ as shown in Figure~\ref{fig:ibzonesq}. Looking at reciprocal
+lattice vectors, we see that if our lattice vectors have length $1$, then the
+reciprocal lattice vectors have length $2\pi$. And we can see that $\Gamma =
+(0,0)$, $K=(\pi,\pi)$ and $M=(0,\pi)$.
 
 With this, and assuming that all masses $M_i=1$ for now (we will explore how
 different perturbations in the lattice affect the dispersion relation in
 Chapter \ref{perturbed}), we get the dispersion relation in
 Figure~\ref{fig:sqdisper}. 
-%TODO: Plot dispersion relation of 2d square lattice and explain?
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/sqdisper.png}
+\caption{\label{fig:sqdisper} The dispersion relation of the 2d square lattice
+  with $M_i=k=\tilde{k}=1$.}
+\end{figure}
 
 \section{2d hexagonal lattice}
 \label{2dhexdisper}
@@ -428,6 +448,19 @@ dispersion relation of this 2d hexagonal lattice.
 \end{figure}
 %TODO: Create own hex bzone image?
 
+So we have formed our first Brillouin zone in Figure~\ref{fig:bzonehex}. But
+again if we plot the isofrequency contours of the six eigenvalues across the
+entire zone as in Figure~\ref{fig:hexisofreq}, we see that we have 12-fold
+symmetry!
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/hexisofreq.png}
+\caption{\label{fig:hexisofreq} The isofrequency contours of the six
+  eigenvalues across the first Brillouin zone of our hexagonal lattice with
+  $M_i=k=\tilde{k}=1$.}
+\end{figure}
+
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.3\textwidth]{imgs/hexibz.png}
@@ -435,7 +468,7 @@ dispersion relation of this 2d hexagonal lattice.
     hexagonal lattice in reciprocal space (blue).}
 \end{figure}
 
-Now as before, we can solve the dispersion relation over our infinite lattice
+So just as before, we can solve the dispersion relation over our infinite lattice
 by just solving it over the boundary of the irreducible Brillouin as shown in
 Figure~\ref{fig:ibzonehex}. First, let us find the values of $\kappa_{x}$ and
 $\kappa_{y}$ at $\Gamma$, $K$ and $M$ as shown in the figure. We take
