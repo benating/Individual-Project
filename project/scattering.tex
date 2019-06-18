@@ -325,13 +325,14 @@ straight away. The 'gentle' bend where we bend the boundary upwards, and the
 \end{figure}
 
 Amazingly, our systems are able to stand up to both of these bends as we can see
-in Figure~\ref{fig:gentlebend} and Figure~\ref{fig:sharpbend}.
-
-%TODO: Continue with combination of straight bends; cross/interlace etc
+in Figure~\ref{fig:gentlebend} and Figure~\ref{fig:sharpbend}, and these type
+of bends may be useful in the production of lenses.\cite{negrefraclens}
 
 \subsection{Curved bends}
 So it can travel around gentle and sharp straight bends; it is only natural to
-then wonder if it can propagate as well along a curved bend.
+then wonder if it can propagate as well along a curved bend. Being able to bend
+energy around a corner could be useful in the creation of an invisibility
+cloak.\cite{emcloak}
 
 \begin{figure}
 \centering
@@ -368,6 +369,45 @@ then wonder if it can propagate as well along a curved bend.
 \end{figure}
 
 \subsection{Energy splitting and merging}
-%TODO: Complete
+One of the applications of metamaterials that we have discussed is splitting
+and also focusing energy.\cite{toposplit,diremi,antennasol} And we see that we
+are able to get the energy splitting behaviour in Figure~\ref{fig:esplit}.
+Unfortunately we are unable to model the energy merging scenario in our system
+as we do not model the flow of energy over time, but just the overall steady
+state wave. However, we can imagine that we could have sources of excitation at
+the three branches and have them converge onto the single branch.
 
-%TODO: do we want \subsection{Grading}
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/esplitarr.png}
+  \caption{Arrangement of cells to form a 3-way split.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/esplitscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+
+\medskip
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\linewidth]{imgs/kagomeesplitarr.png}
+  \caption{Arrangement of cells to form a 3-way split.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/kagomeesplitscat.png}
+  \caption{The plot of $|y_i|$ for each mass in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simulation of scattering on the hexagonal and kagome finite lattice
+  with a 3-way split, modelling a 3-way energy splitter.}
+\label{fig:esplit}
+\end{figure}
+
