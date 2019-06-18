@@ -580,10 +580,25 @@ $\vec{y}=\left[\left\{y_i\right\}\right]^T$ and now
 \end{array}\right]
 \end{align}
 
-Again we have that $\matr{A}$ is Hermitian and given the similarities between
-the kagome and hexagonal lattice, the irreducible Brillouin zones happen to be
-identical as seen in Figure~\ref{fig:ibzonekagome}.
-%TODO: Show kagome bzone is same as hex
+Again we have that $\matr{A}$ is Hermitian and given the similarities in
+geometry between the kagome and hexagonal lattice, we see in
+Figure~\ref{fig:kagomeisofreq} that the irreducible Brillouin zones happen to
+be identical. Therefore, we can use the same zone as before, shown in
+Figure~\ref{fig:ibzonekagome}.
+
+\textit{Note}: The third eigenvalue found in Figure~\ref{fig:kagomeisofreq} is
+actually constant over the whole space, but is showing up as tiny random
+contours due to the small errors in the numerical solutions. As such, it also
+be restricted to the irreducible Brillouin zone. We will discuss further why it
+is constant later on.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{imgs/kagomeisofreq.png}
+\caption{\label{fig:hexisofreq} The isofrequency contours of the three
+  eigenvalues across the first Brillouin zone of our kagome lattice with
+  $M_i=k=\tilde{k}=1$.}
+\end{figure}
 
 \begin{figure}[!h]
 \centering
@@ -605,5 +620,29 @@ zone shown, we get the dispersion relation in Figure~\ref{fig:kagomedisper}.
 What is really interesting about this dispersion relation is that there is one
 eigenvalue solution which is constant over the boundary of the irreducible
 Brillouin zone; but not only that, it is actually constant over the entire
-space!
-%TODO: Explain why there is a flat line in kagome dispersion relation; look at eigenvector to see
+space as we have seen in the third eigenvalue shown in
+Figure~\ref{fig:kagomeisofreq}! The value of this eigenvalue solution is
+actually constant at exactly $\sqrt{6}$. There are different classes of flat
+bands which have been studied,\cite{flatlines} and ours corresponds to the
+symmetry-protected chiral flat bands. We can see this is the case by breaking
+the cellular symmetry by perturbing the masses in each kagome cell, which can
+be seen in Figure~\ref{fig:kagomebreaksym}. It is interesting to see that
+perturbing different masses breaks the flat band in different ways.
+
+\begin{figure}[!h]
+\begin{subfigure}[b]{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/kagomebs1.png}
+\end{subfigure}%
+\begin{subfigure}[b]{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/kagomebs2.png}
+\end{subfigure}%
+\begin{subfigure}[b]{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/kagomebs3.png}
+\end{subfigure}%
+\caption{\label{fig:kagomebreaksym} The dispersion relations of the 2d kagome
+  lattice with one mass perturbed by $0.1$ and all other parameters set to 1.}
+\end{figure}
+
