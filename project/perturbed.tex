@@ -28,7 +28,8 @@ A band gap, also called an energy gap, is an energy range where no wave states
 can exist. In terms of our lattices, this corresponds to a range of frequencies
 where waves are unable to propagate through the material; and in graphs of
 dispersion relations, it is seen as gaps in the frequency axis where no line
-is present. An example is shown in Figure~\ref{fig:bandgapex}. 
+is present. An example is shown in Figure~\ref{fig:bandgapex}. Notice that the
+bandgaps are formed by the Dirac points breaking apart.
 
 \section{2d bulk hexagonal perturbation}
 Due to the many symmetries of the hexagonal lattice, there are many different
@@ -51,15 +52,14 @@ $M_1=M_3=M_5 \neq M_2=M_4=M_6$.
 \end{figure}
 
 In Figure~\ref{fig:hexM}, we see that alternating masses has opened up the
-double dirac point at $\Gamma$ and formed a bandgap.
-%TODO: What is a dirac point?
-%TODO: Add diagram showing rhombuses and how alternating has removed symmetry
+Dirac point at $\Gamma$ and formed a bandgap.
 
 \subsection{Varying mass and stiffnesses}
 Another way we can induce a bandgap in our system is by changing the ratio of
 the inner stiffness to the outer stiffness. This not only breaks one of the
 local symmetries (local in the sense of the individual cell) but also breaks
-one of the \textit{global} symmetries that we get. 
+one of the \textit{global} symmetries that we get. This perturbation is an
+analogue to what is presented in this paper on photonic crystals.\cite{wuandhu}
 
 If you look at our hexagonal lattice and focus on the springs connecting our
 masses, you can see that we have two different hexagons being formed, one
@@ -69,8 +69,28 @@ masses the same amount, and so the two different hexagons we were talking about
 before are of exactly the same proportions. However, when we modify our system
 such that the inner stiffness is greater, say, than the outer stiffness, the
 inner hexagons within each cell will be more "tightly pulled in" on itself and
-in turn causing the outer hexagons to become bigger.
-%TODO: Add figure to show the hexagon sizes changing
+in turn causing the outer hexagons to become bigger. This is shown in
+Figure~\ref{fig:hextug}.
+
+\begin{figure}[!h]
+\begin{subfigure}[b]{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hextugsmall.png}
+  \caption{$k>\tilde{k}=1$}
+\end{subfigure}%
+\begin{subfigure}[b]{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hextug.png}
+  \caption{$k=\tilde{k}=1$}
+\end{subfigure}%
+\begin{subfigure}[b]{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hextugbig.png}
+  \caption{$k<\tilde{k}=1$}
+\end{subfigure}%
+\caption{\label{fig:hextug} The effect of varying $k$ on the sizes of the inner
+  and outer hexagons in the hexagonal lattice.}
+\end{figure}
 
 \begin{figure}[!h]
 \centering
@@ -80,12 +100,12 @@ in turn causing the outer hexagons to become bigger.
   parameters set to $1$.}
 \end{figure}
 
-We can see in Figure~\ref{fig:hex2} that increasing both the mass and inner
-stiffness as well as decreasing both the mass and inner stiffness leads to the
-formation of a bandgap. Also notice that overall the magnitude of the bands are
-about the same as the original bulk system we had. We take a closer look at how
-changing $M_i$ and changing $k$ individually affect the dispersion relation in
-the kagome lattice in Chapter \ref{kagomeperturb}.
+Very interestingly, we can see in Figure~\ref{fig:hex2} that increasing both
+the mass and inner stiffness as well as decreasing both the mass and inner
+stiffness leads to the formation of three bandgaps. This means that this time
+we break all three Dirac points! We take a closer look at how changing $M_i$
+and changing $k$ individually affect the dispersion relation in the kagome
+lattice in Chapter \ref{kagomeperturb}.
 
 \section{2d hexagonal strip}
 \label{formstrip}
@@ -320,8 +340,8 @@ relation.
 However, in the case of varying $k$ in Figure~\ref{fig:kagomek}, we see the inverse
 effect; increasing $k$ increases or widens the dispersion relation, while
 decreasing $k$ decreases or constrains the dispersion relation. Another
-interesting thing to notice about changing $k$ is that it causes the formation
-of a bandgap!
+interesting thing to notice about changing $k$ is that it opens up the Dirac
+point at $K$ and causese the formation of a bandgap!
 
 With these two inverse relationships, we are naturally propelled to ask what
 happens if we combine both of these effects together. For example, by
@@ -428,6 +448,6 @@ $k$, as we used in Figure~\ref{fig:kagome2}.
 Again, as in the hexagonal case, we have a bandgap with two well-defined
 dispersion curves corresponding to edge states which live on the boundary.
 
-Also, one thing interesting to note is that even with our perturbations, we
-still have a flat band, as we have not broken the symmetry of the cell as
-mentioned before!\cite{flatlines}
+Also, one thing interesting to note is that even with our perturbations, in
+both the bulk and strip case we still have a flat band, as we have not broken
+the symmetry of the cell as mentioned before!\cite{flatlines}
