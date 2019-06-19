@@ -1,7 +1,6 @@
 \chapter{Evaluation}
 \section{Reproducibility in other models}
-% TODO: Compare results to those of more complex models; look at other papers
-% and use their parameters
+\label{reproduce}
 As mentioned in Chapter \ref{applications}, most of the practical applications
 of metamaterials and photonic crystals come from their ability to control the
 propagation of acoustic or electromagnetic waves. As such, it is important to
@@ -9,8 +8,51 @@ evaluate our model in terms of whether the results can translate to other
 complex models.
 
 To evaluate the performance and accuracy of our mass-spring model, we will
-therefore compare our results to those produced in other papers, some with the
-mass-spring model and some with more complex continuous models.
+therefore compare our results to those produced in other papers. As we have
+used in one of our hexagonal lattice pertubations an analogue to the
+perturbation in this paper on photonic crystals,\cite{wuandhu} we can try to
+recreate their results of band inversion to corroborate the validity and
+accuracy of our mass-spring model. In the paper, a band inversion take place
+upon reducing the lattice constant from just above $3$ to just below $3$ in
+their system. In our system, this corresponds to increasing the inner stiffness
+$k$ from just above $1$ to just below $1$. We show that we do indeed get this
+band inversion in Figure~\ref{fig:hexinversion}.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hexinvdisperless.png}
+  \caption{Dispersion relation of hexagonal bulk lattice with $k=0.9$, all
+other parameters set to 1.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hexinversionless.png}
+  \caption{Visualisation of the six eigenvectors in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+
+\medskip
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hexinvdispermore.png}
+  \caption{Dispersion relation of hexagonal bulk lattice with $k=1.1$, all
+other parameters set to 1.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{imgs/hexinversionmore.png}
+  \caption{Visualisation of the six eigenvectors in each cell.}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Band inversion for the hexagonal lattice when varying $k$ from $1.1$
+to $0.9$. Notice that eigenvectors 3 and 5 have swapped, and eigenvectors 2 and
+4 have swappred.}
+\label{fig:hexinversion}
+\end{figure}
 
 \section{Extensibility and reusability of codebase}
 On the computing side of things, all our codes are written in Matlab. We chose
@@ -68,11 +110,6 @@ to bother about forming the right equations.
 \end{itemize}
 
 \section{Further work}
-% TODO: Can split into what we can do in terms of different perturbations/
-% grading etc; but also look at computing side, e.g. split into classes so
-% easier to run simulations and get dispersion curves etc
-% - compare the two different kind of perturbations. Is there a difference?
-% Alternating mass one seems to be better. Amplitude is higher
 There are many things that we can improve on and continue investigating for the
 future. 
 
@@ -95,6 +132,12 @@ it is important to study how the number of cells translates to the amount of
 energy lost and how this might lead to unwanted energy elsewhere in the system
 or interference with our edge state along the boundary. An example can be seen
 in Figure~\ref{fig:smallvsbig}.
+
+\item Evaluating the difference in performance or robustness of the different
+types of perturbations used. In our work, we have seen two main ways of
+breaking the symmetry of our lattices and so inducing a topological valley-Hall
+effect. It would be useful to be able to characterise the differences and
+similarities which are present in these perturbed systems.
 \end{itemize}
 
 \begin{figure}
