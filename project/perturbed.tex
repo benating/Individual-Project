@@ -112,7 +112,6 @@ lattice in Chapter \ref{kagomeperturb}.
 
 \section{2d hexagonal strip}
 \label{formstrip}
-%TODO: How does bandgap relate to the dispersion along the boundary?
 
 \begin{figure}[!h]
 \centering
@@ -210,12 +209,22 @@ y_6^{(2N)}\\
 \end{array}\right],
 \end{align}
 
-Now with this eigen-problem, all we have left to do is figure out what the
-irreducible Brillouin zone for our ribbon system is.
+Now with this eigen-problem, all we have left to do is figure out what region
+of the reciprocal space we should solve over for our ribbon system. Since we
+are interested only in waves which are propagated along the interface of our
+ribbon system, we need only consider Bloch conditions in the direction of the
+arrow indicated in Figure~\ref{fig:hexribbonarrow}.
 
-We go from $K'=(-\frac{sqrt{3}\pi}{4},-\frac{pi}{4})$ to $\Gamma=(0,0)$ to
-$K=(\frac{sqrt{3}\pi}{4},\frac{pi}{4})$.
-%TODO: Add derivation of IBZ for hexagonal ribbon system
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.4\textwidth]{imgs/hexribbonarrow.png}
+\caption{\label{fig:hexribbonarrow} Direction of Bloch conditions (blue arrow)
+we need to consider for our hexagonal ribbon system.}
+\end{figure}
+
+Therefore, limiting ourselves to a single reciprocal cell, we go from
+$K'=(-\frac{\sqrt{3}\pi}{4},-\frac{pi}{4})$ to $\Gamma=(0,0)$ to
+$K=(\frac{\sqrt{3}\pi}{4},\frac{pi}{4})$.
 
 Solving this with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$ over the irreducible
 Brilloun zone gives us the dispersion relation in
@@ -290,10 +299,6 @@ the edge modes or edge states of our system, as they travel \textit{along the
 edge} or boundary and exponentially decay outwards from that edge. With this
 knowledge, we are then able to start trying to force energy to propagate in the
 directions we desire in Chapter \ref{scattering}.
-%TODO: How do we know it exponentially decays??
-%TODO: Discuss the difference between the two lines, due to the periodic
-%boundaries, one refers to the red over blue boundary, the other refers to blue
-%over red
 
 \subsection{Varying mass and stiffnesses}
 \label{perturbMk}
@@ -427,7 +432,8 @@ y_3^{(2N)}\\
 \end{align}
 
 Solving this with $M_{i,t}=M_{i,b}=k_t=k_b=\tilde{k}=1$ over the same
-$\kappa$-space as the hexagonal system, gives us the dispersion relation in
+$\kappa$-space as the hexagonal system (since they are built from the same
+elementary hexagonal cell), gives us the dispersion relation in
 Figure~\ref{fig:kagomestripdisper}.
 
 \begin{figure}[!h]
