@@ -51,6 +51,7 @@ which can be realised with these systems.
 \section{Practical applications}
 \label{applications}
 Metamaterials have the potential to solve many modern engineering problems.
+Some of which are mentioned below:
 
 \begin{itemize}
 \item Developing a cloak of invisibility.\cite{emcloak}
@@ -119,7 +120,7 @@ the challenges of getting to grips with the theory of electromagnetic
 radiation, e.g. Maxwell's equations\cite{maxwell} and Bragg
 scattering\cite{bragg}.
 
-\begin{figure}
+\begin{figure}[!h]
 \centering
   \begin{tikzpicture}
     \clip (-1,-1) rectangle (7,7);
@@ -153,10 +154,11 @@ As a concrete example, the kagome lattice shown in
 Figure~\ref{fig:kagomescheme} has a physical analogue as a dense packed system
 such as the one shown in Figure~\ref{fig:kagomephysical}. The dense packed
 system consists of particles and voids filled with fluid connected by thin
-gaps. The key to controlling the behaviour of the crystal is being able to
-precisely engineer the thin gaps, as the gaps and voids together form a
-connected network of resonators. Thus, it can be seen that our model is
-asymptotically equivalent to this physical system.\cite{kphysical}
+gaps and is a good representation for certain photonic and phononic crystals.
+The key to controlling the behaviour of the crystal is being able to precisely
+engineer the thin gaps, as the gaps and voids together form a connected network
+of resonators. Thus, it can be seen that our model is asymptotically equivalent
+to this physical system.\cite{kphysical}
 
 \begin{figure}[!h]
 \centering
@@ -203,12 +205,13 @@ state how we can use this result to simplify the equations we will obtain in
 our systems. This is useful for us as we are modelling elastic waves travelling
 through a periodically-repeating mass-spring system and so Bloch's theorem
 applies. Thus we can write the displacement of one mass as the displacement of
-another corresponding mass in the lattice with a complex exponential factor. By
-doing this, we can characterise the behaviour of all the displacements by just
-focusing on finding the displacements of masses in the \textit{primitive cell},
-which is just the unit cell which forms the repeating base of our lattice. We
-will see later how this helps to reduce our infinite system of equations down
-to a finite number, such as in \eqref{eq:HLN2L} and \eqref{eq:blochsq}.
+another \textit{corresponding} mass in the lattice multiplied by a complex
+exponential factor. By doing this, we can characterise the behaviour of all the
+displacements by just focusing on finding the displacements of masses in the
+\textit{primitive cell}, which is just the unit cell which forms the repeating
+base of our lattice. We will see later how this helps to reduce our infinite
+system of equations down to a finite number, such as in \eqref{eq:HLN2L} and
+\eqref{eq:blochsq}.
 
 \section{Reciprocal lattice}
 \label{reclatbg}

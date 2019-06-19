@@ -76,7 +76,7 @@ excitation just above the boundary (at $M_4$), and a negative excitation just
 below the boundary (at $M_5$), i.e. $\vec{F}$ is $0$ everywhere except
 $\vec{F}_{6(\frac{N}{2}-1)+4}=1$ and $\vec{F}_{6(\frac{N}{2})+5}=-1$.
 
-\begin{figure}
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.5\linewidth]{imgs/hexstdfinlattice.png}
   \caption{Arrangement of hexagonal cells ($2N=20$, $M=40$), with red and blue
@@ -95,7 +95,7 @@ dispersion curves corresponding to the edge states) will just propagate
 throughout the lattice and so we would not get any discernible patterns of
 movement. An example can be found in Figure~\ref{fig:randscat}.
 
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \begin{subfigure}[b]{.5\textwidth}
   \centering
@@ -122,7 +122,7 @@ using $\Omega = 1.6$ instead as we can see in
 Figure~\ref{fig:hexstripMrotatedzooms1} that the dispersion curve for that edge
 mode lives in the bandgap.
 
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \begin{subfigure}[b]{.5\textwidth}
   \centering
@@ -152,10 +152,11 @@ around bends and more complex boundaries, which is what we discuss in Chapter
 \ref{complexbends}.
 
 \subsection{Varying mass and stiffnesses}
-In this section we will take a look at running scattering simulations as above
-but for the physical system discussed in Chapter \ref{perturbMk}.
+Now we take a look at running scattering simulations as above but for the
+physical system discussed in Chapter \ref{perturbMk}, which results in
+Figure~\ref{hexstdMk}.
 
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \begin{subfigure}[b]{.5\textwidth}
   \centering
@@ -195,7 +196,7 @@ negative excitation just below the boundary (at $M_3$), i.e. $\vec{F}$ is $0$
 everywhere except $\vec{F}_{3(\frac{N}{2}-1)+3}=1$ and
 $\vec{F}_{3(\frac{N}{2})+3}=-1$.
 
-
+\medskip
 Running our simulation on the arrangement of cells in
 Figure~\ref{fig:kagomestdfinlattice}, we get the edge state in
 Figure~\ref{fig:kagomestd}. The only difference between this and the hexagonal
@@ -207,7 +208,7 @@ be trasmitted along that boundary. Something very similar happens along the top
 boundary where there is a straight line connection between $M_1$ and $M_3$,
 which we can see in Figure~\ref{fig:kagomegentlebendscat}.
 
-\begin{figure}
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.5\linewidth]{imgs/kagomestdarr.png}
   \caption{Arrangement of kagome cells ($2N=20$, $M=40$), with red and blue
@@ -215,7 +216,7 @@ which we can see in Figure~\ref{fig:kagomegentlebendscat}.
   \label{fig:kagomestdfinlattice}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \begin{subfigure}[b]{.5\textwidth}
   \centering
@@ -235,179 +236,3 @@ which we can see in Figure~\ref{fig:kagomegentlebendscat}.
   Figure~\ref{fig:kagomeperturbed} with $\Omega = 1.64$.}
 \label{fig:kagomestd}
 \end{figure}
-
-\section{Complex bends}
-\label{complexbends}
-Now that we have built up the foundation of how we can force a wave to
-propagate in a specific direction in a topologically repeating material or
-metamaterial, we want to see just how robust this phenomenon is based on the
-shape of the boundary, i.e. just how much can we bend the wave?
-
-\textit{Note:} For the hexagonal simulations, we will specifically be using the
-same top and bottom cells as Figure~\ref{fig:hexstdrotstraight}, which is with
-alternating masses as defined in Figure~\ref{fig:hexstripMrotated}. And for the
-kagome simulations, we will specifically be using the same top and bottom cells
-as Figure~\ref{fig:kagomestd}.
-
-\subsection{Gentle and sharp straight bends}
-So far we have seen just straight line boundaries, but can this work for bent
-boundaries too? Due to the way we set up our lattice (with the strips getting
-higher as we go from left to right), there are two kinds of bends we can make
-straight away. The 'gentle' bend where we bend the boundary upwards, and the
-'sharp' bend where we bend the boundary downwards.
-
-\begin{figure}
-\centering
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=0.8\linewidth]{imgs/gentlebendarr.png}
-  \caption{Arrangement of cells to form a gentle bend.}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{imgs/gentlebendscat.png}
-  \caption{The plot of $|y_i|$ for each mass in each cell.}
-  \label{fig:sub2}
-\end{subfigure}
-
-\medskip
-\centering
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=0.8\linewidth]{imgs/kagomegentlebendarr.png}
-  \caption{Arrangement of cells to form a gentle bend.}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{imgs/kagomegentlebendscat.png}
-  \caption{The plot of $|y_i|$ for each mass in each cell.}
-  \label{fig:kagomegentlebendscat}
-\end{subfigure}
-\caption{Simulation of scattering hexagonal and kagome finite lattices with a
-  gentle bend.}
-\label{fig:gentlebend}
-\end{figure}
-
-\begin{figure}
-\centering
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=0.8\linewidth]{imgs/sharpbendarr.png}
-  \caption{Arrangement of cells to form a sharp bend.}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{imgs/sharpbendscat.png}
-  \caption{The plot of $|y_i|$ for each mass in each cell.}
-  \label{fig:sub2}
-\end{subfigure}
-
-\medskip
-\centering
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=0.8\linewidth]{imgs/kagomesharpbendarr.png}
-  \caption{Arrangement of cells to form a sharp bend.}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{imgs/kagomesharpbendscat.png}
-  \caption{The plot of $|y_i|$ for each mass in each cell.}
-  \label{fig:sub2}
-\end{subfigure}
-\caption{Simulation of scattering on the hexagonal and kagome finite lattice
-  with a sharp bend.}
-\label{fig:sharpbend}
-\end{figure}
-
-Amazingly, our systems are able to stand up to both of these bends as we can see
-in Figure~\ref{fig:gentlebend} and Figure~\ref{fig:sharpbend}, and these type
-of bends may be useful in the production of lenses.\cite{negrefraclens}
-
-\subsection{Curved bends}
-So it can travel around gentle and sharp straight bends; it is only natural to
-then wonder if it can propagate as well along a curved bend. Being able to bend
-energy around a corner could be useful in the creation of an invisibility
-cloak.\cite{emcloak}
-
-\begin{figure}
-\centering
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=0.8\linewidth]{imgs/curvedbendarr.png}
-  \caption{Arrangement of cells to form a curved bend.}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{imgs/curvedbendscat.png}
-  \caption{The plot of $|y_i|$ for each mass in each cell.}
-  \label{fig:sub2}
-\end{subfigure}
-
-\medskip
-\centering
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=0.8\linewidth]{imgs/kagomecurvedbendarr.png}
-  \caption{Arrangement of cells to form a curved bend.}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{imgs/kagomecurvedbendscat.png}
-  \caption{The plot of $|y_i|$ for each mass in each cell.}
-  \label{fig:sub2}
-\end{subfigure}
-\caption{Simulation of scattering on the hexagonal and kagome finite lattice
-  with curved bend.}
-\label{fig:curvedbend}
-\end{figure}
-
-\subsection{Energy splitting and merging}
-One of the applications of metamaterials that we have discussed is splitting
-and also focusing energy.\cite{toposplit,diremi,antennasol} And we see that we
-are able to get the energy splitting behaviour in Figure~\ref{fig:esplit}.
-Unfortunately we are unable to model the energy merging scenario in our system
-as we do not model the flow of energy over time, but just the overall steady
-state wave. However, we can imagine that we could have sources of excitation at
-the three branches and have them converge onto the single branch.
-
-\begin{figure}
-\centering
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=0.8\linewidth]{imgs/esplitarr.png}
-  \caption{Arrangement of cells to form a 3-way split.}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{imgs/esplitscat.png}
-  \caption{The plot of $|y_i|$ for each mass in each cell.}
-  \label{fig:sub2}
-\end{subfigure}
-
-\medskip
-\centering
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=0.8\linewidth]{imgs/kagomeesplitarr.png}
-  \caption{Arrangement of cells to form a 3-way split.}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{imgs/kagomeesplitscat.png}
-  \caption{The plot of $|y_i|$ for each mass in each cell.}
-  \label{fig:sub2}
-\end{subfigure}
-\caption{Simulation of scattering on the hexagonal and kagome finite lattice
-  with a 3-way split, modelling a 3-way energy splitter.}
-\label{fig:esplit}
-\end{figure}
-
